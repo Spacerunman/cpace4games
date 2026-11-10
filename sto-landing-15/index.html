@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Цех №3 — сервис коммерческого транспорта</title>
+<meta name="description" content="Цех №3 — сервис коммерческого транспорта и автопарков: ТО, ремонт, договоры обслуживания для компаний.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  ПРЕВЬЮ-ВЕРСИЯ лендинга автосервиса (вариант 15 — индустриальный / чертёж).
+  Для полной доработки: реальные контакты, тарифы для автопарков, отправка формы (#form), фото, SEO.
+-->
+<style>
+  :root{--bg:#0E3358;--bg-2:#0B2A49;--grid:rgba(255,255,255,.07);--text:#EAF2FB;--muted:#9DB7D3;--line:rgba(255,255,255,.22);--orange:#FF7A00;--yellow:#FFD000}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"Exo 2",system-ui,sans-serif;color:var(--text);line-height:1.55;overflow-x:hidden;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:100px 100px,100px 100px,20px 20px,20px 20px}
+  a{color:inherit;text-decoration:none}
+  button,input,select{font:inherit;color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  @media (min-width:768px){.wrap{padding:0 32px}}
+  [id]{scroll-margin-top:76px}
+  h1,h2,h3{font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:.01em}
+  h2{font-size:clamp(30px,4.6vw,56px)}
+  .mono{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
+  .tape{height:14px;background:repeating-linear-gradient(-45deg,var(--yellow) 0 14px,#111 14px 28px)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;background:var(--orange);color:#111;font-weight:800;text-transform:uppercase;letter-spacing:.06em;border:0;cursor:pointer;position:relative;transition:transform .15s;white-space:nowrap}
+  .btn::after{content:"";position:absolute;inset:4px;border:1px dashed rgba(0,0,0,.35);pointer-events:none}
+  .btn:active{transform:translateY(2px)}
+  @media (hover:hover){.btn:hover{background:#FF8C1F}}
+  .btn.o{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .btn.o::after{border-color:var(--line)}
+
+  header{position:sticky;top:0;z-index:40;background:rgba(11,42,73,.95);border-bottom:1px solid var(--line)}
+  .nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .logo{font-weight:800;font-size:20px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .logo svg{width:32px;height:32px;animation:gear 8s linear infinite}
+  @keyframes gear{to{transform:rotate(360deg)}}
+  .links{display:none;gap:28px;font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+  .links a:hover{color:var(--orange)}
+  @media (min-width:960px){.links{display:flex}}
+  .nav .btn{height:42px;padding:0 18px;font-size:14px}
+
+  .hero{padding:48px 0 64px}
+  .hg{display:grid;gap:36px;align-items:center}
+  @media (min-width:960px){.hg{grid-template-columns:1fr 1fr}}
+  .hero h1{font-size:clamp(38px,6vw,76px);margin:14px 0 18px}
+  .hero h1 span{color:var(--orange)}
+  .hero p{color:var(--muted);max-width:50ch;font-size:clamp(16px,1.5vw,18px)}
+  .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .bp{border:1px solid var(--line);background:rgba(11,42,73,.6);padding:16px;position:relative}
+  .bp .lbl{position:absolute;top:10px;left:14px}
+  .bp .dim{position:absolute;bottom:10px;right:14px;font-size:12px;color:var(--muted)}
+  .bp svg{width:100%;height:auto;display:block}
+  .bp .draw{stroke-dasharray:var(--len,1200);stroke-dashoffset:var(--len,1200);animation:drawLine 2.8s ease forwards}
+  .bp .draw.d2{animation-delay:.8s}.bp .draw.d3{animation-delay:1.4s}
+  @keyframes drawLine{to{stroke-dashoffset:0}}
+  .bp .gear-s{transform-origin:center;transform-box:fill-box;animation:gear 6s linear infinite}
+
+  section{padding:72px 0}
+  @media (min-width:768px){section{padding:100px 0}}
+  .sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px}
+  .sh h2{margin-top:10px}
+  .specs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media (min-width:700px){.specs{grid-template-columns:1fr 1fr}}
+  @media (min-width:1024px){.specs{grid-template-columns:repeat(3,1fr)}}
+  .sp{background:var(--bg-2);padding:24px;display:flex;flex-direction:column;gap:10px;position:relative;transition:background .25s}
+  @media (hover:hover){.sp:hover{background:#0F3A64}.sp:hover .code{color:var(--orange)}}
+  .sp .code{font-size:12px;letter-spacing:.2em;color:var(--muted);transition:color .25s}
+  .sp h3{font-size:22px}
+  .sp p{color:var(--muted);font-size:15px}
+  .sp .pr{margin-top:auto;font-weight:700;color:var(--yellow)}
+
+  /* fleet calculator */
+  .fleet{border:1px solid var(--line);background:var(--bg-2);display:grid;gap:28px;padding:28px 20px}
+  @media (min-width:900px){.fleet{grid-template-columns:1.1fr .9fr;padding:44px}}
+  .range{margin-top:26px}
+  .range label{display:flex;justify-content:space-between;font-weight:700;margin-bottom:12px;text-transform:uppercase;font-size:14px;letter-spacing:.06em}
+  .range label b{color:var(--orange);font-size:22px}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;background:linear-gradient(90deg,var(--orange) var(--p,10%),rgba(255,255,255,.15) var(--p,10%));outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;background:var(--yellow);border:3px solid #111;cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--yellow);border:3px solid #111;border-radius:0;cursor:pointer}
+  .ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px}
+  .res{border:1px dashed var(--line);padding:22px;display:grid;gap:14px;align-content:start}
+  .res .big{font-size:clamp(44px,6vw,64px);font-weight:800;color:var(--yellow);line-height:1}
+  .res ul{list-style:none;display:grid;gap:8px;color:var(--muted)}
+  .res li::before{content:"■ ";color:var(--orange)}
+
+  .eq{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  @media (min-width:900px){.eq{grid-template-columns:repeat(4,1fr)}}
+  .eq div{border:1px solid var(--line);padding:20px;background:rgba(11,42,73,.6)}
+  .eq b{display:block;font-size:clamp(28px,4vw,40px);color:var(--orange);font-weight:800;line-height:1}
+  .eq span{color:var(--muted);font-size:14px}
+
+  .book{display:grid;gap:28px;border:1px solid var(--line);background:var(--bg-2);padding:28px 20px}
+  @media (min-width:900px){.book{grid-template-columns:1fr 1fr;padding:44px}}
+  form{display:grid;gap:12px}
+  .f label{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .f input,.f select{width:100%;height:52px;border:1px solid var(--line);background:var(--bg);padding:0 14px;font-size:16px;border-radius:0}
+  .f select option{color:#111}
+  .f input:focus,.f select:focus{outline:none;border-color:var(--orange)}
+  .f2{display:grid;gap:12px}
+  @media (min-width:560px){.f2{grid-template-columns:1fr 1fr}}
+  .ok{display:none}
+  .ok.on{display:block}
+  .ok h3{font-size:30px;color:var(--yellow)}
+  .info{list-style:none;display:grid;gap:10px;margin-top:20px;color:var(--muted)}
+  .info b{color:var(--text)}
+
+  footer{padding:26px 0 100px;color:var(--muted);font-size:14px}
+  @media (min-width:768px){footer{padding-bottom:26px}}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .mob{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(100%);transition:transform .3s}
+  .mob.on{transform:none}
+  .mob .btn{width:100%;height:58px}
+  @media (min-width:768px){.mob{display:none}}
+
+  .r{opacity:0;transform:translateX(-24px);transition:opacity .6s ease, transform .6s ease}
+  .r.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.r{opacity:1;transform:none}.bp .draw{stroke-dashoffset:0}html{scroll-behavior:auto}}
+  :focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#FF7A00" stroke-width="2"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>Цех №3</a>
+  <nav class="links"><a href="#services">Услуги</a><a href="#fleet">Автопаркам</a><a href="#equipment">Оснащение</a><a href="#book">Контакты</a></nav>
+  <a href="#book" class="btn">Заявка</a>
+</div></header>
+<div class="tape" aria-hidden="true"></div>
+
+<main>
+<section class="hero">
+  <div class="wrap hg">
+    <div>
+      <span class="mono r">Сервис коммерческого транспорта</span>
+      <h1 class="r">Автопарк <span>не стоит</span> — бизнес едет</h1>
+      <p class="r">ТО и ремонт фургонов, грузовиков до 12 т и спецтехники. Работаем круглосуточно, выезжаем на линию, обслуживаем автопарки по договору.</p>
+      <div class="acts r"><a href="#book" class="btn">Оставить заявку</a><a href="#fleet" class="btn o">Расчёт для автопарка</a></div>
+    </div>
+    <div class="bp r" aria-hidden="true">
+      <span class="mono lbl">Чертёж · лист 3</span>
+      <svg viewBox="0 0 520 300" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path class="draw" style="--len:1400" d="M40 220V120h230v100M270 140h90l60 40v40H270M40 220h420" stroke="#EAF2FB" stroke-width="2.5"/>
+        <path class="draw d2" style="--len:300" d="M280 150h70l40 30h-110Z" stroke="#9DB7D3" stroke-width="2"/>
+        <circle class="draw d2" style="--len:200" cx="110" cy="230" r="28" stroke="#EAF2FB" stroke-width="2.5"/>
+        <circle class="draw d2" style="--len:200" cx="380" cy="230" r="28" stroke="#EAF2FB" stroke-width="2.5"/>
+        <path class="draw d3" style="--len:600" d="M40 270h420M40 262v16M460 262v16M40 100v-20M270 100v-20M40 90h230" stroke="#FFD000" stroke-width="1.5" stroke-dasharray="6 6"/>
+        <g class="gear-s"><circle cx="455" cy="70" r="22" stroke="#FF7A00" stroke-width="3"/><path d="M455 40v10M455 90v10M425 70h10M475 70h10M434 49l7 7M469 84l7 7M434 91l7-7M469 56l7-7" stroke="#FF7A00" stroke-width="3"/></g>
+      </svg>
+      <span class="dim">L = 6 400 мм · M 1:50</span>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sh"><div><span class="mono r">Спецификация услуг</span><h2 class="r">Что делаем</h2></div></div>
+    <div class="specs">
+      <div class="sp r"><span class="code">УС-01</span><h3>Плановое ТО</h3><p>Фургоны, малотоннажные и средние грузовики.</p><div class="pr">от 4 500 ₽</div></div>
+      <div class="sp r"><span class="code">УС-02</span><h3>Диагностика</h3><p>Двигатель, пневмосистема, электрика, тахограф.</p><div class="pr">от 2 000 ₽</div></div>
+      <div class="sp r"><span class="code">УС-03</span><h3>Ходовая и тормоза</h3><p>Рессоры, пневмоподвеска, тормозные механизмы.</p><div class="pr">от 3 000 ₽</div></div>
+      <div class="sp r"><span class="code">УС-04</span><h3>Двигатель и КПП</h3><p>Ремонт дизелей, топливной аппаратуры, сцепления.</p><div class="pr">от 8 000 ₽</div></div>
+      <div class="sp r"><span class="code">УС-05</span><h3>Выездной ремонт</h3><p>Техпомощь на линии 24/7 в радиусе 100 км.</p><div class="pr">от 5 000 ₽</div></div>
+      <div class="sp r"><span class="code">УС-06</span><h3>Шиномонтаж грузовой</h3><p>Колёса до R22.5, балансировка, ремонт.</p><div class="pr">от 1 200 ₽/кол.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="fleet" style="padding-top:0">
+  <div class="wrap">
+    <div class="fleet r">
+      <div>
+        <span class="mono">Для компаний</span>
+        <h2 style="margin-top:10px">Договор на обслуживание автопарка</h2>
+        <p style="color:var(--muted);margin-top:12px;max-width:48ch">Передвиньте ползунок — покажем скидку и условия для вашего количества машин.</p>
+        <div class="range">
+          <label for="cars">Машин в парке <b id="carsV">5</b></label>
+          <input type="range" id="cars" min="1" max="100" value="5">
+          <div class="ticks"><span>1</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+        </div>
+      </div>
+      <div class="res" aria-live="polite">
+        <span class="mono">Ваши условия</span>
+        <div class="big" id="disc">−5%</div>
+        <ul id="perks"></ul>
+        <a href="#book" class="btn">Получить договор</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipment" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><span class="mono r">Оснащение цеха</span><h2 class="r">Цифры</h2></div></div>
+    <div class="eq">
+      <div class="r"><b>8</b><span>постов, из них 3 — для грузовиков</span></div>
+      <div class="r"><b>24/7</b><span>режим работы</span></div>
+      <div class="r"><b>12 т</b><span>грузоподъёмность подъёмников</span></div>
+      <div class="r"><b>140+</b><span>компаний на обслуживании</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" style="padding-top:0">
+  <div class="wrap">
+    <div class="book r">
+      <div>
+        <span class="mono">Заявка</span>
+        <h2 style="margin-top:10px">Свяжитесь с нами</h2>
+        <ul class="info"><li><b>Адрес:</b> Промзона, корпус 3</li><li><b>Телефон 24/7:</b> <a href="tel:+70000000000">+7 (000) 000-00-00</a></li><li><b>Для юрлиц:</b> безнал, договор, отсрочка</li></ul>
+      </div>
+      <div>
+        <form id="form" novalidate>
+          <div class="f2">
+            <div class="f"><label for="n">Имя / компания</label><input id="n" placeholder="ООО «Пример»" autocomplete="organization"></div>
+            <div class="f"><label for="ph">Телефон</label><input id="ph" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel"></div>
+          </div>
+          <div class="f"><label for="sv">Задача</label><select id="sv"><option>Плановое ТО</option><option>Ремонт</option><option>Выездной ремонт</option><option>Договор на автопарк</option></select></div>
+          <button class="btn" type="submit" style="margin-top:6px">Отправить</button>
+        </form>
+        <div class="ok" id="ok"><h3>Заявка принята</h3><p id="okTxt" style="color:var(--muted);margin-top:8px"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="tape" aria-hidden="true"></div>
+<footer><div class="wrap"><span>© <span id="y"></span> Цех №3 · демо-лендинг</span><span>Промзона, корпус 3</span></div></footer>
+<div class="mob" id="mob"><a href="#book" class="btn">Оставить заявку</a></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  $$('.r').forEach(el => { const sib = [...el.parentElement.children].filter(c => c.classList.contains('r')); el.style.transitionDelay = Math.min(sib.indexOf(el), 5) * 80 + 'ms'; io.observe(el); });
+
+  // fleet calculator
+  const cars = $('#cars'), v = $('#carsV'), disc = $('#disc'), perks = $('#perks');
+  function calc(){
+    const n = +cars.value; v.textContent = n;
+    cars.style.setProperty('--p', ((n - 1) / 99 * 100) + '%');
+    const d = n >= 50 ? 20 : n >= 20 ? 15 : n >= 10 ? 10 : n >= 5 ? 5 : 0;
+    disc.textContent = d ? '−' + d + '%' : 'базовые цены';
+    const list = ['Единый счёт в конце месяца'];
+    if (n >= 5) list.push('Приоритетная запись без очереди');
+    if (n >= 10) list.push('Персональный менеджер');
+    if (n >= 20) list.push('Выездной ремонт без доплаты');
+    if (n >= 50) list.push('Отдельный пост под ваш автопарк');
+    perks.innerHTML = list.map(t => '<li>' + t + '</li>').join('');
+  }
+  cars.addEventListener('input', calc); calc();
+
+  const mob = $('#mob'); addEventListener('scroll', () => mob.classList.toggle('on', scrollY > 500), {passive:true});
+  const ph = $('#ph');
+  ph.addEventListener('input', () => { let d = ph.value.replace(/\D/g,''); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0,11); let o = '+7'; if (d.length > 1) o += ' (' + d.slice(1,4); if (d.length >= 4) o += ')'; if (d.length > 4) o += ' ' + d.slice(4,7); if (d.length > 7) o += '-' + d.slice(7,9); if (d.length > 9) o += '-' + d.slice(9,11); ph.value = o; });
+  $('#form').addEventListener('submit', e => { e.preventDefault(); const n = $('#n'); let ok = true; [n, ph].forEach(f => f.style.borderColor = ''); if (!n.value.trim()) { n.style.borderColor = 'var(--orange)'; ok = false; } if (ph.value.replace(/\D/g,'').length !== 11) { ph.style.borderColor = 'var(--orange)'; ok = false; } if (!ok) return; $('#okTxt').textContent = `${n.value.trim()}, перезвоним на ${ph.value} в течение 15 минут.`; $('#form').style.display = 'none'; $('#ok').classList.add('on'); });
+  $('#y').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
