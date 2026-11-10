@@ -19,13 +19,13 @@
   @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
   @media (min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
   a.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease;opacity:0;transform:translateY(16px);animation:in .6s ease forwards}
-  a.card:nth-child(2){animation-delay:.08s}a.card:nth-child(3){animation-delay:.16s}a.card:nth-child(4){animation-delay:.24s}a.card:nth-child(5){animation-delay:.32s}
+  a.card:nth-child(2){animation-delay:.08s}a.card:nth-child(3){animation-delay:.16s}a.card:nth-child(4){animation-delay:.24s}a.card:nth-child(5){animation-delay:.32s}a.card:nth-child(n+6){animation-delay:.36s}
   @keyframes in{to{opacity:1;transform:none}}
   @media (hover:hover){a.card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(0,0,0,.3)}}
   .prev{height:170px;position:relative;display:flex;align-items:flex-end;padding:18px}
   .prev b{font-size:24px;font-weight:800;letter-spacing:-.01em}
   .sw{position:absolute;top:18px;right:18px;display:flex;gap:6px}
-  .sw i{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.6)}
+  .sw i{width:18px;height:18px;border-radius:50%;border:2px solid rgba(128,128,128,.35)}
   .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
   .body small{color:var(--muted);font-size:14px}
   .body span{margin-top:auto;padding-top:10px;font-weight:700}
@@ -35,7 +35,7 @@
 <body>
 <div class="wrap">
   <h1>Лендинги для автосервисов</h1>
-  <p class="lead">Пять вариантов оформления: разные палитры, шрифты и анимации. Сайты работают на телефонах и компьютерах.</p>
+  <p class="lead">15 вариантов оформления: разные палитры, шрифты и анимации. Сайты работают на телефонах и компьютерах.</p>
   <div class="grid">
     <a class="card" href="sto-landing/">
       <div class="prev" style="background:#121418;color:#fff"><div class="sw"><i style="background:#FF5B1F"></i><i style="background:#D4FF3A"></i><i style="background:#F3F2EC"></i></div><b>ТОРК</b></div>
@@ -54,8 +54,48 @@
       <div class="body"><strong>Яркий bento</strong><small>Фиолетовый, жёлтый и голубой. Меняющееся слово в заголовке, квиз «цена за 3 шага», бегущие отзывы.</small><span>Открыть →</span></div>
     </a>
     <a class="card" href="sto-landing-5/">
-      <div class="prev" style="background:linear-gradient(110deg,#0B0B0C 60%,#E5332A 60% 64%,#0B0B0C 64%);color:#fff"><div class="sw"><i style="background:#E5332A"></i><i style="background:#FFB020"></i><i style="background:#0B0B0C"></i></div><b style="text-transform:uppercase">Красная линия</b></div>
+      <div class="prev" style="background:linear-gradient(110deg,#0B0B0C 78%,#E5332A 78% 82%,#0B0B0C 82%);color:#fff"><div class="sw"><i style="background:#E5332A"></i><i style="background:#FFB020"></i><i style="background:#0B0B0C"></i></div><b style="text-transform:uppercase">Красная линия</b></div>
       <div class="body"><strong>Тёмный «гоночный»</strong><small>Чёрный, красный и янтарный. Линии скорости, слайдер услуг, прайс с переключателем, сравнение «до/после».</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-6/">
+      <div class="prev" style="background:#FFE14D;color:#111"><div class="sw"><i style="background:#FF7AB6"></i><i style="background:#4D7CFF"></i><i style="background:#3DDC84"></i></div><b style="">ГАЙКА</b></div>
+      <div class="body"><strong>Нео-брутализм</strong><small>Жёлтый, чёрные рамки и жёсткие тени. Бегущая строка, стикер-скидка, кнопки «вдавливаются».</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-7/">
+      <div class="prev" style="background:#FFFFFF;color:#0A0A0A"><div class="sw"><i style="background:#FF2A1A"></i><i style="background:#0A0A0A"></i><i style="background:#EDEDED"></i></div><b style="">Сервис/1</b></div>
+      <div class="body"><strong>Швейцарский минимализм</strong><small>Белый, чёрный и одна красная точка. Линии прорисовываются, услуги раскрываются при наведении.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-8/">
+      <div class="prev" style="background:linear-gradient(135deg,#2A1460,#7A2A8C);color:#fff"><div class="sw"><i style="background:#38E1FF"></i><i style="background:#8B5CF6"></i><i style="background:#FF6AD5"></i></div><b style="">Люмен</b></div>
+      <div class="body"><strong>Стекло и неон</strong><small>Ночной градиент, матовые карточки, плавающие пятна света, 3D-наклон карточек, подписка.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-9/">
+      <div class="prev" style="background:#F6E7C8;color:#4A2E1A"><div class="sw"><i style="background:#E2632A"></i><i style="background:#EFAE35"></i><i style="background:#2D7470"></i></div><b style="font-family:Georgia,serif">Старый гараж</b></div>
+      <div class="body"><strong>Ретро 70-х</strong><small>Кремовый, оранжевый и коричневый. Вращающиеся лучи, круглая печать, меню-доска, полароиды.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-10/">
+      <div class="prev" style="background:#00B86B;color:#fff"><div class="sw"><i style="background:#D9FF6B"></i><i style="background:#C8F5DD"></i><i style="background:#0B2A22"></i></div><b style="">Вольт</b></div>
+      <div class="body"><strong>Эко / электромобили</strong><small>Мятный и зелёный. Анимированная зарядка батареи, счётчик CO₂, раскрывающиеся вопросы.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-11/">
+      <div class="prev" style="background:#0C0B0A;color:#E7CF97"><div class="sw"><i style="background:#C9A45C"></i><i style="background:#E7CF97"></i><i style="background:#151311"></i></div><b style="font-family:Georgia,serif;letter-spacing:.2em">ПРЕСТИЖ</b></div>
+      <div class="body"><strong>Премиум-люкс</strong><small>Чёрный и золото, шрифт с засечками. Переливающийся текст, прорисовка контура авто.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-12/">
+      <div class="prev" style="background:#F3EFE6;color:#141414"><div class="sw"><i style="background:#D7261E"></i><i style="background:#FFE066"></i><i style="background:#141414"></i></div><b style="font-family:Georgia,serif">Механика №7</b></div>
+      <div class="body"><strong>Журнальный стиль</strong><small>Как свежий номер журнала: буквица, колонки, маркер-выделение, рубрики услуг.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-13/">
+      <div class="prev" style="background:#070A08;color:#39FF7A"><div class="sw"><i style="background:#39FF7A"></i><i style="background:#FFC23D"></i><i style="background:#FF5A5A"></i></div><b style="font-family:monospace">ДИАГНОСТ_</b></div>
+      <div class="body"><strong>Терминал</strong><small>Зелёный моноширинный текст: печатающаяся консоль, ASCII-прогресс диагностики.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-14/">
+      <div class="prev" style="background:#FFB4C8;color:#2B2350"><div class="sw"><i style="background:#A9D6FF"></i><i style="background:#B8F0D8"></i><i style="background:#FFE08A"></i></div><b style="">Бибика</b></div>
+      <div class="body"><strong>Дружелюбный пастельный</strong><small>Розовый, голубой и мятный. Едущая машинка, облака, «желейные» кнопки.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-15/">
+      <div class="prev" style="background:#0E3358;color:#EAF2FB"><div class="sw"><i style="background:#FF7A00"></i><i style="background:#FFD000"></i><i style="background:#EAF2FB"></i></div><b style="">ЦЕХ №3</b></div>
+      <div class="body"><strong>Индустриальный чертёж</strong><small>Синий чертёж и сигнальная лента. Прорисовка грузовика, калькулятор для автопарков.</small><span>Открыть →</span></div>
     </a>
   </div>
 </div>

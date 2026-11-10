@@ -2,7 +2,7 @@
 
 ## Лендинги автосервисов — портфолио
 
-Пять демо-лендингов СТО в разном оформлении. Каждый — один HTML-файл без сборки:
+15 демо-лендингов СТО в разном оформлении. Каждый — один HTML-файл без сборки:
 откройте в браузере или выложите на любой хостинг (GitHub Pages, Netlify и т.п.).
 
 | Папка | Название | Стиль | Особенности |
@@ -12,6 +12,16 @@
 | `sto-landing-3/` | Мастерская «Колесо» | Светлый «семейный», зелёный + горчичный | Заголовок по словам, прайс во вкладках, карточки-стопка, слайдер отзывов |
 | `sto-landing-4/` | МоторПро | Яркий bento, фиолетовый + жёлтый | Меняющееся слово в заголовке, квиз «цена за 3 шага», бегущие отзывы |
 | `sto-landing-5/` | Красная линия | Тёмный «гоночный», чёрный + красный + янтарный | Линии скорости, слайдер услуг, прайс с переключателем, сравнение «до/после» |
+| `sto-landing-6/` | ГАЙКА | Нео-брутализм, жёлтый + чёрный | Жёсткие тени, бегущая строка, стикер-скидка |
+| `sto-landing-7/` | Сервис/1 | Швейцарский минимализм | Прорисовка линий, раскрытие услуг при наведении |
+| `sto-landing-8/` | Люмен | Стекло и неон, ночной градиент | Плавающие пятна света, 3D-наклон карточек, подписка |
+| `sto-landing-9/` | Старый гараж | Ретро 70-х | Вращающиеся лучи, печать, меню-доска, полароиды |
+| `sto-landing-10/` | Вольт | Эко / электромобили | Анимация зарядки, счётчик CO₂, FAQ |
+| `sto-landing-11/` | Престиж | Премиум-люкс, чёрный + золото | Переливающийся текст, прорисовка контура авто |
+| `sto-landing-12/` | Механика №7 | Журнальный editorial | Буквица, колонки, маркер-выделение |
+| `sto-landing-13/` | ДИАГНОСТ | Терминал | Печатающаяся консоль, ASCII-прогресс |
+| `sto-landing-14/` | Бибика | Дружелюбный пастельный | Едущая машинка, облака, «желейные» кнопки |
+| `sto-landing-15/` | Цех №3 | Индустриальный чертёж | Прорисовка грузовика, калькулятор для автопарков |
 
 Корневой `index.html` — страница-витрина со ссылками на все сайты.
 
@@ -31,3 +41,13 @@ Settings → Pages → Source: **GitHub Actions**. Публикация запу
 - https://spacerunman.github.io/cpace4games/sto-landing-3/
 - https://spacerunman.github.io/cpace4games/sto-landing-4/
 - https://spacerunman.github.io/cpace4games/sto-landing-5/
+- https://spacerunman.github.io/cpace4games/sto-landing-6/
+- https://spacerunman.github.io/cpace4games/sto-landing-7/
+- https://spacerunman.github.io/cpace4games/sto-landing-8/
+- https://spacerunman.github.io/cpace4games/sto-landing-9/
+- https://spacerunman.github.io/cpace4games/sto-landing-10/
+- https://spacerunman.github.io/cpace4games/sto-landing-11/
+- https://spacerunman.github.io/cpace4games/sto-landing-12/
+- https://spacerunman.github.io/cpace4games/sto-landing-13/
+- https://spacerunman.github.io/cpace4games/sto-landing-14/
+- https://spacerunman.github.io/cpace4games/sto-landing-15/

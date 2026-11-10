@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДИАГНОСТ — автоэлектрика и диагностика</title>
+<meta name="description" content="ДИАГНОСТ — центр автоэлектрики и компьютерной диагностики: поиск неисправностей, прошивка, ремонт проводки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!--
+  ПРЕВЬЮ-ВЕРСИЯ лендинга автосервиса (вариант 13 — терминал / кибер).
+  Для полной доработки: реальные контакты и цены, отправка формы (#form), фото, карта, SEO.
+-->
+<style>
+  :root{--bg:#070A08;--panel:#0C120E;--line:#17321F;--green:#39FF7A;--green-2:#1FAE52;--dim:#6E8F78;--amber:#FFC23D;--red:#FF5A5A}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"JetBrains Mono",ui-monospace,monospace;background:var(--bg);color:#CFF7DA;line-height:1.6;font-size:15px;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+  a{color:inherit;text-decoration:none}
+  button,input,select{font:inherit;color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  @media (min-width:768px){.wrap{padding:0 28px}}
+  [id]{scroll-margin-top:70px}
+  h1,h2,h3{font-weight:800;line-height:1.1;color:var(--green)}
+  h2{font-size:clamp(24px,3.6vw,40px)}
+  h2::before{content:"## ";color:var(--dim)}
+  .g{color:var(--green)}.a{color:var(--amber)}.d{color:var(--dim)}.rd{color:var(--red)}
+  .glow{text-shadow:0 0 12px rgba(57,255,122,.55)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 22px;border:1px solid var(--green);color:var(--green);background:transparent;cursor:pointer;font-weight:700;transition:background .15s, color .15s;white-space:nowrap}
+  .btn::before{content:"> ";}
+  @media (hover:hover){.btn:hover{background:var(--green);color:var(--bg)}}
+  .btn:active{transform:translateY(1px)}
+  .btn.f{background:var(--green);color:var(--bg)}
+
+  header{position:sticky;top:0;z-index:40;background:rgba(7,10,8,.94);border-bottom:1px solid var(--line)}
+  .nav{height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .logo{font-weight:800;color:var(--green)}
+  .logo span{color:var(--dim)}
+  .links{display:none;gap:22px;color:var(--dim)}
+  .links a:hover{color:var(--green)}
+  .links a::before{content:"./"}
+  @media (min-width:900px){.links{display:flex}}
+  .nav .btn{height:40px;padding:0 14px;font-size:14px}
+
+  .hero{padding:48px 0 56px}
+  .term{background:var(--panel);border:1px solid var(--line);box-shadow:0 0 0 1px rgba(57,255,122,.05),0 30px 60px -30px rgba(57,255,122,.25)}
+  .term .bar{display:flex;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);color:var(--dim);font-size:13px}
+  .term .bar i{width:11px;height:11px;border-radius:50%;background:#2A3A2F}
+  .term .bar i:nth-child(1){background:var(--red)}.term .bar i:nth-child(2){background:var(--amber)}.term .bar i:nth-child(3){background:var(--green-2)}
+  .term .body{padding:20px 18px;min-height:340px}
+  @media (min-width:768px){.term .body{padding:28px}}
+  .out{white-space:pre-wrap;word-break:break-word}
+  .cur{display:inline-block;width:.6em;height:1.1em;background:var(--green);vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero h1{font-size:clamp(30px,5.6vw,64px);margin:30px 0 14px}
+  .hero p{color:#A8CDB3;max-width:60ch}
+  .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+  section{padding:64px 0}
+  @media (min-width:768px){section{padding:88px 0}}
+  .ls{margin-top:26px;border:1px solid var(--line)}
+  .ls .row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);transition:background .15s}
+  .ls .row:last-child{border-bottom:0}
+  @media (min-width:768px){.ls .row{grid-template-columns:110px 1fr 160px 120px}}
+  .ls .row:not(.hd):hover{background:#0F1A13}
+  .ls .hd{color:var(--dim);font-size:13px;text-transform:uppercase}
+  .ls .perm{display:none;color:var(--dim)}
+  .ls .tm{display:none;color:var(--dim)}
+  @media (min-width:768px){.ls .perm,.ls .tm{display:block}}
+  .ls .nm b{color:var(--green)}
+  .ls .nm small{display:block;color:var(--dim)}
+  .ls .pr{color:var(--amber);text-align:right;white-space:nowrap}
+
+  .scan{display:grid;gap:14px;margin-top:26px}
+  @media (min-width:900px){.scan{grid-template-columns:1fr 1fr}}
+  .sc{border:1px solid var(--line);background:var(--panel);padding:18px}
+  .sc .t{display:flex;justify-content:space-between;color:var(--dim);font-size:13px;margin-bottom:10px}
+  .bar-a{font-size:14px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden}
+  .ok-b{color:var(--green)}.wr-b{color:var(--amber)}
+
+  .rv{border-left:2px solid var(--green);padding:6px 0 6px 16px;margin-top:20px}
+  .rv p::before{content:"$ echo \"";color:var(--dim)}
+  .rv p::after{content:"\"";color:var(--dim)}
+  .rv small{color:var(--dim)}
+
+  .form-t .body{min-height:0}
+  form{display:grid;gap:10px;min-width:0}
+  .f{display:flex;align-items:center;gap:10px;border-bottom:1px dashed var(--line);padding:6px 0;min-width:0}
+  .f select{width:0}
+  .f label{color:var(--amber);white-space:nowrap;min-width:84px}
+  .f input,.f select{flex:1;min-width:0;height:44px;background:transparent;border:0;color:var(--green);font-size:16px}
+  .f select option{background:var(--bg)}
+  .f input::placeholder{color:#3E5F49}
+  .f input:focus,.f select:focus{outline:none}
+  .f:focus-within{border-bottom-color:var(--green)}
+  form .btn{margin-top:14px;justify-self:start}
+  .ok{display:none}
+  .ok.on{display:block}
+
+  footer{padding:24px 0 100px;color:var(--dim);font-size:13px;border-top:1px solid var(--line)}
+  @media (min-width:768px){footer{padding-bottom:24px}}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .mob{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;transform:translateY(150%);transition:transform .3s}
+  .mob.on{transform:none}
+  .mob .btn{width:100%;background:var(--bg)}
+  @media (min-width:768px){.mob{display:none}}
+
+  .r{opacity:0;transition:opacity .4s steps(4)}
+  .r.in{opacity:1}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.r{opacity:1}html{scroll-behavior:auto}}
+  :focus-visible{outline:1px dashed var(--amber);outline-offset:3px}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo">ДИАГНОСТ<span>_v2.6</span></a>
+  <nav class="links"><a href="#services">услуги</a><a href="#scan">отчёт</a><a href="#book">запись</a></nav>
+  <a href="#book" class="btn">запись</a>
+</div></header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="term">
+      <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">root@diagnost: ~</span></div>
+      <div class="body"><div class="out" id="typed"></div><span class="cur" aria-hidden="true"></span></div>
+    </div>
+    <h1 class="glow r">Найдём неисправность, которую не нашли другие</h1>
+    <p class="r">Центр автоэлектрики и компьютерной диагностики. Осциллограф, дилерские сканеры, схемы для 3 000+ моделей. Работаем, пока не найдём причину.</p>
+    <div class="acts r"><a href="#book" class="btn f">записаться на диагностику</a><a href="#services" class="btn">cat prices.txt</a></div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="r">ls -la ./услуги</h2>
+    <div class="ls r">
+      <div class="row hd"><span class="perm">права</span><span>услуга</span><span class="tm">время</span><span style="text-align:right">цена</span></div>
+      <div class="row"><span class="perm">-rwx</span><span class="nm"><b>компьютерная_диагностика</b><small>все блоки, отчёт с кодами ошибок</small></span><span class="tm">30–60 мин</span><span class="pr">1 200 ₽</span></div>
+      <div class="row"><span class="perm">-rwx</span><span class="nm"><b>поиск_неисправности</b><small>осциллограф, схемы, замеры</small></span><span class="tm">от 1 ч</span><span class="pr">2 000 ₽/ч</span></div>
+      <div class="row"><span class="perm">-rwx</span><span class="nm"><b>ремонт_проводки</b><small>восстановление жгутов и разъёмов</small></span><span class="tm">от 2 ч</span><span class="pr">от 2 500 ₽</span></div>
+      <div class="row"><span class="perm">-rwx</span><span class="nm"><b>прошивка_эбу</b><small>обновление ПО, адаптации, кодирование</small></span><span class="tm">1–2 ч</span><span class="pr">от 3 000 ₽</span></div>
+      <div class="row"><span class="perm">-rwx</span><span class="nm"><b>стартер_генератор</b><small>диагностика и ремонт</small></span><span class="tm">от 2 ч</span><span class="pr">от 2 000 ₽</span></div>
+      <div class="row"><span class="perm">-rwx</span><span class="nm"><b>доп_оборудование</b><small>камеры, сигнализации, мультимедиа</small></span><span class="tm">от 2 ч</span><span class="pr">от 2 500 ₽</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="scan" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="r">./scan --report</h2>
+    <p class="d r" style="margin-top:10px">Так выглядит пример отчёта, который вы получите в мессенджер:</p>
+    <div class="scan">
+      <div class="sc r"><div class="t"><span>ДВИГАТЕЛЬ (ECM)</span><span class="g">OK</span></div><div class="bar-a ok-b" data-fill="100">[....................] 0%</div></div>
+      <div class="sc r"><div class="t"><span>КОРОБКА (TCM)</span><span class="g">OK</span></div><div class="bar-a ok-b" data-fill="100">[....................] 0%</div></div>
+      <div class="sc r"><div class="t"><span>ABS / ESP</span><span class="a">1 предупр.</span></div><div class="bar-a wr-b" data-fill="85">[....................] 0%</div></div>
+      <div class="sc r"><div class="t"><span>КУЗОВНАЯ ЭЛЕКТРОНИКА</span><span class="rd">P0562</span></div><div class="bar-a" style="color:var(--red)" data-fill="60">[....................] 0%</div></div>
+    </div>
+    <div class="rv r"><p>Нашли обрыв массы за 40 минут. В другом сервисе неделю меняли датчики.</p><small>— Артур, Ford Focus</small></div>
+    <div class="rv r"><p>Прошили блок, ошибки ушли, машина ожила.</p><small>— Дина, Mitsubishi Outlander</small></div>
+  </div>
+</section>
+
+<section id="book" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="r">./book --new</h2>
+    <div class="term form-t r" style="margin-top:26px">
+      <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">запись.sh</span></div>
+      <div class="body">
+        <form id="form" novalidate>
+          <div class="f"><label for="n">имя:</label><input id="n" placeholder="введите_имя" autocomplete="given-name"></div>
+          <div class="f"><label for="ph">телефон:</label><input id="ph" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel"></div>
+          <div class="f"><label for="sv">услуга:</label><select id="sv"><option>компьютерная_диагностика</option><option>поиск_неисправности</option><option>ремонт_проводки</option><option>прошивка_эбу</option><option>стартер_генератор</option></select></div>
+          <button class="btn f" type="submit">отправить</button>
+        </form>
+        <div class="ok out" id="ok"></div>
+        <p class="d" style="margin-top:18px">// адрес: пр. Схемотехников, 404 · тел: <a href="tel:+70000000000" class="g">+7 (000) 000-00-00</a> · 10:00–22:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="y"></span> ДИАГНОСТ · демо-лендинг</span><span>exit 0</span></div></footer>
+<div class="mob" id="mob"><a href="#book" class="btn f">записаться</a></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // typing terminal
+  const lines = [
+    ['$ ', 'diagnost --connect OBD-II'],
+    ['', '<span class="d">[ok]</span> подключение установлено'],
+    ['$ ', 'scan --all'],
+    ['', '<span class="d">[..]</span> сканирование 38 блоков...'],
+    ['', '<span class="a">[!]</span> найдено: 2 ошибки, 1 предупреждение'],
+    ['$ ', 'fix --with-report'],
+    ['', '<span class="g">[ok]</span> готово. отчёт отправлен в мессенджер ✓']
+  ];
+  const out = $('#typed');
+  if (reduce) out.innerHTML = lines.map(l => '<span class="g">' + l[0] + '</span>' + l[1]).join('\n');
+  else (async () => {
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    for (const [p, t] of lines) {
+      const line = document.createElement('div'); out.appendChild(line);
+      if (p) { line.innerHTML = '<span class="g">' + p + '</span>'; const span = document.createElement('span'); line.appendChild(span); for (const ch of t) { span.textContent += ch; await sleep(38); } await sleep(250); }
+      else { await sleep(300); line.innerHTML = t; }
+    }
+  })();
+
+  // ascii progress bars
+  function fillBar(el){
+    const target = +el.dataset.fill, n = 20; let p = 0;
+    const draw = v => { const k = Math.round(v / 100 * n); el.textContent = '[' + '#'.repeat(k) + '.'.repeat(n - k) + '] ' + v + '%'; };
+    if (reduce) return draw(target);
+    const t = setInterval(() => { p = Math.min(target, p + 4); draw(p); if (p >= target) clearInterval(t); }, 40);
+  }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; e.target.classList.add('in'); io.unobserve(e.target);
+    const bar = e.target.querySelector('[data-fill]'); if (bar) fillBar(bar);
+  }), {threshold:.15});
+  $$('.r').forEach(el => { const sib = [...el.parentElement.children].filter(c => c.classList.contains('r')); el.style.transitionDelay = Math.min(sib.indexOf(el), 5) * 100 + 'ms'; io.observe(el); });
+
+  const mob = $('#mob'); addEventListener('scroll', () => mob.classList.toggle('on', scrollY > 500), {passive:true});
+  const ph = $('#ph');
+  ph.addEventListener('input', () => { let d = ph.value.replace(/\D/g,''); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0,11); let o = '+7'; if (d.length > 1) o += ' (' + d.slice(1,4); if (d.length >= 4) o += ')'; if (d.length > 4) o += ' ' + d.slice(4,7); if (d.length > 7) o += '-' + d.slice(7,9); if (d.length > 9) o += '-' + d.slice(9,11); ph.value = o; });
+  $('#form').addEventListener('submit', e => {
+    e.preventDefault(); const n = $('#n'); let ok = true;
+    [n, ph].forEach(f => f.parentElement.style.borderBottomColor = '');
+    if (!n.value.trim()) { n.parentElement.style.borderBottomColor = 'var(--red)'; ok = false; }
+    if (ph.value.replace(/\D/g,'').length !== 11) { ph.parentElement.style.borderBottomColor = 'var(--red)'; ok = false; }
+    if (!ok) return;
+    const o = $('#ok'); o.innerHTML = '<span class="g">[ok]</span> заявка создана\n<span class="g">[ok]</span> ' + n.value.trim().replace(/[<>&]/g,'') + ', перезвоним на ' + ph.value + '\n<span class="d">exit 0</span>';
+    $('#form').style.display = 'none'; o.classList.add('on');
+  });
+  $('#y').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
