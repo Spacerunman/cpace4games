@@ -19,7 +19,8 @@
 
 ### Публикация (GitHub Pages)
 
-Settings → Pages → Source: «Deploy from a branch» → Branch: `main`, папка `/ (root)` → Save.
+Settings → Pages → Source: **GitHub Actions**. Публикация запускается автоматически при каждом
+пуше в `main` (workflow `.github/workflows/pages.yml`) или вручную во вкладке Actions.
 Через 1–2 минуты сайты будут доступны:
 
 - https://spacerunman.github.io/cpace4games/ — витрина
