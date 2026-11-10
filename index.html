@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Портфолио — лендинги для кафе и ресторанов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F2EE;--ink:#16171A;--muted:#5F636B;--card:#fff;--line:#E4E1DA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Manrope",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1200px;margin:0 auto;padding:56px 16px}
+  @media (min-width:768px){.wrap{padding:88px 32px}}
+  h1{font-size:clamp(30px,5vw,54px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  p.lead{color:var(--muted);margin-top:14px;max-width:58ch;font-size:17px}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+  .filters button{height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:inherit;font-weight:700;cursor:pointer;transition:.2s}
+  .filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .grid{display:grid;gap:16px;margin-top:28px}
+  @media (min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  a.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease;opacity:0;transform:translateY(16px);animation:in .6s ease forwards}
+  a.card.hide{display:none}
+  @keyframes in{to{opacity:1;transform:none}}
+  @media (hover:hover){a.card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(0,0,0,.3)}}
+  .prev{height:170px;position:relative;display:flex;align-items:flex-end;justify-content:space-between;padding:18px;gap:12px}
+  .prev b{font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.1}
+  .prev .em{font-size:54px;line-height:1;transition:transform .4s}
+  @media (hover:hover){a.card:hover .em{transform:rotate(-12deg) scale(1.1)}}
+  .num{position:absolute;top:16px;left:18px;font-size:13px;font-weight:800;opacity:.7}
+  .sw{position:absolute;top:18px;right:18px;display:flex;gap:6px}
+  .sw i{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.7)}
+  .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .body small{color:var(--muted);font-size:14px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tags span{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg)}
+  .body .go{margin-top:auto;padding-top:10px;font-weight:800}
+  @media (prefers-reduced-motion:reduce){a.card{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Лендинги для кафе и ресторанов</h1>
+  <p class="lead">15 демо-сайтов в разных стилях: от скандинавского кафе до неонового стритфуда. Все адаптированы под телефоны и компьютеры, у всех лёгкие анимации.</p>
+  <div class="filters"><button class="on" data-f="all">Все</button><button data-f="light">Светлые</button><button data-f="dark">Тёмные</button><button data-f="bright">Яркие</button></div>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+const S=[
+["food-01","Брусника","Скандинавское кафе","Кремовый, шалфей и брусника. Вращающаяся тарелка, меню во вкладках, бронь стола.","#F7F4EE","#22302A",["#B23A48","#8FA894","#22302A"],"🥞","light",["минимализм","кафе"]],
+["food-02","Osteria Nonna","Итальянская траттория","Терракота и олива. Арка с клеткой, бегущая строка, карточки с тенью, слайдер отзывов.","#C8553D","#fff",["#5E6B3A","#F3E2C7","#2B1A12"],"🍝","light",["ресторан","тёплый"]],
+["food-03","UMAMI","Рамен-бар","Чёрный и красный. Пар над чашей, иероглифы на фоне, счётчики, меню с появляющимися иконками.","#0E0E0F","#F2EEE6",["#E63B2E","#F2EEE6","#17171A"],"🍜","dark",["азия","минимализм"]],
+["food-04","SMASH","Бургерная","Необрутализм: жёлтый, чёрный, розовый. Жёсткие тени, вращающийся стикер, корзина со счётчиком.","#FFD60A","#111",["#FF5DA2","#3A86FF","#06D6A0"],"🍔","bright",["фастфуд","доставка"]],
+["food-05","Зерно","Кофейня спешелти","Bento-сетка, кофе и крема. Наполняющаяся чашка, интерактивный брю-гид, подписка на зерно.","#2A1D16","#FBF8F4",["#D9A877","#B9D3C2","#6B4430"],"☕","light",["кофейня","bento"]],
+["food-06","Green Bowl","Здоровое питание","Белый, зелёный и лайм. Конструктор боула с подсчётом цены и КБЖУ, плавающие ингредиенты.","#F1F7EC","#13261A",["#2FA84F","#C6F432","#FFD9C2"],"🥗","light",["ПП","конструктор"]],
+["food-07","Le Ciel","Высокая кухня","Чёрный и золото. Рисующиеся кольца, заголовок по строкам, дегустационный сет, элегантная форма.","#0B0B0A","#C9A961",["#C9A961","#EDE6D6","#121210"],"🥂","dark",["люкс","ресторан"]],
+["food-08","Колосок","Пекарня","Персиковый и корочка. Таймер до новой партии, расписание выпечки, волна, «нажимные» кнопки.","#FFE1C8","#3D2614",["#C9772E","#F6B8A5","#FFF6EC"],"🥐","light",["пекарня","уют"]],
+["food-09","Пицца Пронто","Доставка пиццы","Красный и белый, как приложение. CSS-пицца меняет размер, фильтр меню, всплывающая корзина.","#EE3124","#fff",["#FFC94A","#1E9E5A","#1B1B1F"],"🍕","bright",["доставка","конструктор"]],
+["food-10","Угли","Гриль-бар","Уголь и огонь. Летящие искры, переливающийся заголовок, меню-таблица, сеты с горизонтальной прокруткой.","#141210","#FFB238",["#FF6B1A","#FFB238","#F3EBE1"],"🔥","dark",["мясо","банкеты"]],
+["food-11","Пломбир","Джелатерия","Пастельные пятна. Рожок с выбором вкуса — меняется цвет страницы, посыпка, «пружинящие» карточки.","#FFD6E6","#3A2342",["#FF8FB8","#9EE6CF","#C9B6FF"],"🍦","bright",["десерты","детям"]],
+["food-12","Sol","Тапас-бар","Плитка азулежу, синий и шафран. Карточки-перевёртыши, паэлья, афиша вечеров.","#1D4ED8","#fff",["#F4B000","#E4572E","#14213D"],"🥘","bright",["испания","бар"]],
+["food-13","WOK’N’ROLL","Азиатский стритфуд","Неон на тёмно-фиолетовом. Мерцающие вывески, конструктор вока с ползунком остроты, светящиеся рамки.","#0D0820","#22E4FF",["#FF2E88","#22E4FF","#B6FF3B"],"🥡","dark",["неон","конструктор"]],
+["food-14","Шафран","Чайхана","Изумруд, золото и терракота. Качающиеся фонарики, арка, восточный узор, меню-аккордеон.","#0F3B3A","#E0B04A",["#E0B04A","#C2552F","#F7EBD3"],"🫖","dark",["восток","уют"]],
+["food-15","Желток","Бранч-кафе","Журнальная вёрстка: крупные заголовки, колонки, буквица, строка, движущаяся при прокрутке.","#F2EFE8","#111110",["#FFC531","#111110","#E4DFD3"],"🍳","light",["editorial","бранч"]]];
+const g=document.getElementById('grid');
+g.innerHTML=S.map((s,i)=>`<a class="card" data-k="${s[8]}" href="${s[0]}/" style="animation-delay:${i*50}ms">
+<div class="prev" style="background:${s[4]};color:${s[5]}"><span class="num">${String(i+1).padStart(2,'0')}</span><div class="sw">${s[6].map(c=>`<i style="background:${c}"></i>`).join('')}</div><b>${s[1]}</b><span class="em">${s[7]}</span></div>
+<div class="body"><strong>${s[2]}</strong><small>${s[3]}</small><div class="tags">${s[9].map(t=>`<span>${t}</span>`).join('')}</div><span class="go">Открыть →</span></div></a>`).join('');
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+document.querySelectorAll('a.card').forEach(c=>c.classList.toggle('hide',b.dataset.f!=='all'&&c.dataset.k!==b.dataset.f))});
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Угли — гриль-бар</title>
+<meta name="description" content="Угли — гриль-бар: мясо на открытом огне, шашлык, стейки и овощи на мангале. Банкеты до 60 гостей.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141210;--bg2:#1D1A17;--ink:#F3EBE1;--muted:#A89C8E;--fire:#FF6B1A;--amber:#FFB238;--line:#2E2925;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Fira Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-family:"Oswald",system-ui,sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+h2{font-size:clamp(34px,5.4vw,64px)}
+.hot{background:linear-gradient(90deg,var(--amber),var(--fire),#E2361A,var(--amber));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+section{padding:80px 0}
+@media(min-width:900px){section{padding:120px 0}}
+.muted{color:var(--muted)}
+.kick{font-family:"Oswald";text-transform:uppercase;letter-spacing:.2em;color:var(--fire);font-size:14px;display:block;margin-bottom:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border-radius:var(--r);background:linear-gradient(135deg,var(--amber),var(--fire));color:#1A0E05;font-family:"Oswald";text-transform:uppercase;letter-spacing:.06em;font-size:17px;border:0;cursor:pointer;box-shadow:0 10px 30px -10px var(--fire);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px var(--fire)}
+.btn.o{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.o:hover{box-shadow:inset 0 0 0 1.5px var(--fire)}
+header{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s}
+header.sc{background:rgba(20,18,16,.95)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:"Oswald";font-weight:700;font-size:28px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.logo span{animation:flick 1.6s infinite alternate}
+@keyframes flick{0%{opacity:1;transform:scale(1)}50%{opacity:.8;transform:scale(.94) rotate(-4deg)}100%{opacity:1;transform:scale(1.04)}}
+.links{display:flex;gap:30px;font-family:"Oswald";text-transform:uppercase;letter-spacing:.08em}
+.links a:hover{color:var(--fire)}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer}
+.burger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:fixed;inset:74px 0 auto;flex-direction:column;gap:0;background:var(--bg);padding:0 16px;max-height:0;overflow:hidden;transition:max-height .4s}
+  .links a{padding:16px 0;border-top:1px solid var(--line);font-size:22px}
+  .nav-open .links{max-height:360px}
+  .nav-open header{background:var(--bg)}
+  .nav-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 64px;overflow:hidden;background:radial-gradient(ellipse 80% 50% at 50% 110%,rgba(255,107,26,.45),transparent 70%),var(--bg)}
+.embers{position:absolute;inset:0;pointer-events:none}
+.embers i{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px 2px var(--fire);animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}100%{opacity:0;transform:translate(var(--dx),-90vh)}}
+.hero .wrap{position:relative;width:100%}
+.hero h1{font-size:clamp(56px,13vw,180px);line-height:.9}
+.hero .row{display:grid;gap:24px;margin-top:32px;align-items:end}
+@media(min-width:900px){.hero .row{grid-template-columns:1fr auto}}
+.hero p{font-size:18px;max-width:46ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+/* features */
+.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(min-width:900px){.feats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.feats div{padding:28px 20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s}
+.feats div:hover{background:var(--bg2)}
+.feats b{font-family:"Oswald";font-size:clamp(34px,4vw,52px);display:block;color:var(--amber)}
+/* menu tabs */
+.mtabs{display:flex;gap:4px;margin:32px 0 8px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.mtabs button{flex:none;padding:14px 18px;background:none;border:0;color:var(--muted);font-family:"Oswald";text-transform:uppercase;letter-spacing:.06em;font-size:17px;cursor:pointer;position:relative;transition:color .2s}
+.mtabs button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--fire);transform:scaleX(0);transition:transform .3s}
+.mtabs button.on{color:var(--ink)}.mtabs button.on::after{transform:none}
+.mt{display:none}.mt.on{display:block;animation:fi .5s ease}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}}
+table{width:100%;border-collapse:collapse}
+td{padding:20px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{width:56px;font-size:30px}
+td h3{font-size:22px}
+td small{color:var(--muted);display:block;font-size:14px}
+td.w{color:var(--muted);text-align:right;white-space:nowrap;padding:22px 12px 0}
+td.p{font-family:"Oswald";font-size:22px;color:var(--amber);text-align:right;white-space:nowrap;width:1%}
+@media(max-width:560px){td.w{display:none}}
+/* hscroll */
+.hs{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 16px 16px;margin:32px -16px 0;scrollbar-width:thin;scrollbar-color:var(--fire) var(--bg2)}
+@media(min-width:768px){.hs{margin:32px -32px 0;padding:8px 32px 16px}}
+.hc{flex:0 0 min(300px,78vw);scroll-snap-align:start;background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:24px;transition:border-color .3s,transform .3s}
+.hc:hover{border-color:var(--fire);transform:translateY(-4px)}
+.hc .e{font-size:54px}
+.hc h3{font-size:24px;margin:14px 0 6px}
+/* banquet */
+.banq{display:grid;gap:32px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:28px;padding:36px 22px}
+@media(min-width:900px){.banq{grid-template-columns:1fr 1fr;padding:56px}}
+form{display:grid;gap:12px}
+@media(min-width:560px){form{grid-template-columns:repeat(2,minmax(0,1fr))}.full{grid-column:1/-1}}
+input,select{height:56px;border-radius:var(--r);border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:0 16px;font:inherit;width:100%}
+input:focus,select:focus{outline:0;border-color:var(--fire)}
+.fields{display:contents}.ok{display:none;padding:20px;border-radius:var(--r);background:rgba(255,107,26,.12);border:1px solid var(--fire)}
+.sent .ok{display:block}.sent .fields{display:none}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}.embers{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><span>🔥</span>Угли</a>
+  <nav class="links"><a href="#menu">Меню</a><a href="#special">Хиты</a><a href="#banquet">Банкеты</a><a href="#contacts">Контакты</a></nav>
+  <a href="#banquet" class="btn">Стол</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></header>
+
+<section class="hero"><div class="embers" id="emb"></div><div class="wrap">
+  <span class="kick rv">Гриль-бар · открытый огонь</span>
+  <h1 class="rv">Мясо.<br><span class="hot">Огонь.</span><br>Дым.</h1>
+  <div class="row">
+    <p class="muted rv">Готовим на берёзовых и вишнёвых углях: шашлык из фермерской баранины, стейки сухого вызревания и овощи с мангала.</p>
+    <div class="actions rv"><a href="#menu" class="btn">Меню</a><a href="#banquet" class="btn o">Банкет</a></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="feats">
+  <div class="rv"><b>800°</b><span class="muted">жар углей</span></div>
+  <div class="rv"><b>21</b><span class="muted">день вызревания стейков</span></div>
+  <div class="rv"><b>60</b><span class="muted">гостей в банкетном зале</span></div>
+  <div class="rv"><b>12</b><span class="muted">видов домашних соусов</span></div>
+</div></div>
+
+<section id="menu"><div class="wrap">
+  <span class="kick rv">Меню</span>
+  <h2 class="rv">С мангала</h2>
+  <div class="mtabs rv"><button class="on">Шашлык</button><button>Стейки</button><button>Овощи</button><button>Соусы</button></div>
+  <div class="mt on"><table>
+    <tr><td>🍖</td><td><h3>Баранья корейка</h3><small>маринад с зирой, лук, зелень</small></td><td class="w">250 г</td><td class="p">890 ₽</td></tr>
+    <tr><td>🐖</td><td><h3>Свиная шея</h3><small>классический маринад</small></td><td class="w">250 г</td><td class="p">590 ₽</td></tr>
+    <tr><td>🐔</td><td><h3>Цыплёнок табака</h3><small>чеснок, аджика</small></td><td class="w">450 г</td><td class="p">720 ₽</td></tr>
+    <tr><td>🍢</td><td><h3>Люля-кебаб</h3><small>баранина, курдючный жир, лаваш</small></td><td class="w">200 г</td><td class="p">560 ₽</td></tr>
+  </table></div>
+  <div class="mt"><table>
+    <tr><td>🥩</td><td><h3>Рибай</h3><small>21 день сухого вызревания</small></td><td class="w">350 г</td><td class="p">2 400 ₽</td></tr>
+    <tr><td>🥩</td><td><h3>Стриплойн</h3><small>мраморная говядина</small></td><td class="w">300 г</td><td class="p">1 900 ₽</td></tr>
+    <tr><td>🥩</td><td><h3>Мачете</h3><small>диафрагма, чимичурри</small></td><td class="w">250 г</td><td class="p">1 100 ₽</td></tr>
+  </table></div>
+  <div class="mt"><table>
+    <tr><td>🌽</td><td><h3>Кукуруза</h3><small>сливочное масло, паприка</small></td><td class="w">1 шт</td><td class="p">240 ₽</td></tr>
+    <tr><td>🍆</td><td><h3>Овощи-гриль</h3><small>баклажан, перец, томаты, цукини</small></td><td class="w">300 г</td><td class="p">420 ₽</td></tr>
+    <tr><td>🥔</td><td><h3>Картофель в углях</h3><small>с салом и укропом</small></td><td class="w">250 г</td><td class="p">260 ₽</td></tr>
+  </table></div>
+  <div class="mt"><table>
+    <tr><td>🍅</td><td><h3>Томатный копчёный</h3><small>домашний</small></td><td class="w">50 г</td><td class="p">90 ₽</td></tr>
+    <tr><td>🌿</td><td><h3>Ткемали</h3><small>из алычи</small></td><td class="w">50 г</td><td class="p">90 ₽</td></tr>
+    <tr><td>🌶️</td><td><h3>Аджика</h3><small>острая</small></td><td class="w">50 г</td><td class="p">90 ₽</td></tr>
+  </table></div>
+</div></section>
+
+<section id="special" style="padding-top:0"><div class="wrap">
+  <span class="kick rv">Листайте →</span>
+  <h2 class="rv">Сеты на компанию</h2>
+  <div class="hs rv">
+    <div class="hc"><div class="e">🍖</div><h3>Мясной на 4</h3><p class="muted">1,5 кг шашлыка трёх видов, овощи, лаваш, соусы</p><p style="font-family:Oswald;font-size:26px;color:var(--amber);margin-top:12px">3 900 ₽</p></div>
+    <div class="hc"><div class="e">🥩</div><h3>Стейк-сет</h3><p class="muted">Рибай, стриплойн, мачете, картофель</p><p style="font-family:Oswald;font-size:26px;color:var(--amber);margin-top:12px">5 200 ₽</p></div>
+    <div class="hc"><div class="e">🐟</div><h3>Рыбный</h3><p class="muted">Форель, дорадо, креветки на углях</p><p style="font-family:Oswald;font-size:26px;color:var(--amber);margin-top:12px">4 100 ₽</p></div>
+    <div class="hc"><div class="e">🥗</div><h3>Овощной</h3><p class="muted">Овощи-гриль, сыр халлуми, грибы</p><p style="font-family:Oswald;font-size:26px;color:var(--amber);margin-top:12px">1 800 ₽</p></div>
+  </div>
+</div></section>
+
+<section id="banquet" style="padding-top:0"><div class="wrap"><div class="banq rv">
+  <div><span class="kick">Банкеты</span><h2>Праздник у огня</h2><p class="muted" style="margin-top:14px">Отдельный зал до 60 гостей, открытая кухня и шеф, который жарит прямо при вас. Без арендной платы.</p></div>
+  <form><div class="fields">
+    <input required placeholder="Имя"><input required type="tel" placeholder="Телефон">
+    <input required type="date"><select><option>До 10 гостей</option><option>10–30 гостей</option><option>30–60 гостей</option></select>
+    <button class="btn full">Рассчитать банкет</button></div>
+    <div class="ok full">🔥 Заявка принята. Менеджер позвонит в течение часа.</div>
+  </form>
+</div></div></section>
+
+<footer id="contacts"><div class="wrap"><span>Угли © 2026 · демо</span><span>Лесная, 24 · 12:00–00:00</span><span>+7 (900) 000-00-00</span></div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+const h=document.querySelector('header');addEventListener('scroll',()=>h.classList.toggle('sc',scrollY>20),{passive:true});
+const emb=document.getElementById('emb'),N=innerWidth<700?18:36;
+for(let i=0;i<N;i++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';e.style.setProperty('--dx',(Math.random()*120-60)+'px');
+e.style.animationDuration=(5+Math.random()*6)+'s';e.style.animationDelay=(-Math.random()*10)+'s';const s=2+Math.random()*4;e.style.width=e.style.height=s+'px';emb.appendChild(e)}
+const tb=document.querySelectorAll('.mtabs button'),mt=document.querySelectorAll('.mt');
+tb.forEach((b,i)=>b.onclick=()=>{tb.forEach(x=>x.classList.remove('on'));mt.forEach(x=>x.classList.remove('on'));b.classList.add('on');mt[i].classList.add('on')});
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>

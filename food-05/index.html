@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Зерно — кофейня</title>
+<meta name="description" content="Зерно — кофейня спешелти: собственная обжарка, альтернативные способы заваривания, десерты и зёрна домой.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EFE8DF;--card:#FBF8F4;--ink:#2A1D16;--muted:#7D6B5F;--coffee:#6B4430;--crema:#D9A877;--mint:#B9D3C2;--r:28px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Golos Text",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 12px}
+@media(min-width:768px){.wrap{padding:0 28px}}
+h1,h2,h3{font-family:"Unbounded",system-ui,sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4.4vw,48px)}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;background:var(--ink);color:var(--card);font:inherit;font-weight:600;border:0;cursor:pointer;transition:transform .2s,gap .2s}
+.btn:hover{gap:16px}
+.btn.l{background:var(--card);color:var(--ink)}
+header{position:sticky;top:0;z-index:20;padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 10px 0 22px;background:rgba(251,248,244,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:999px;box-shadow:0 8px 30px -18px rgba(42,29,22,.5)}
+.logo{font-family:"Unbounded";font-weight:700;font-size:20px}
+.links{display:flex;gap:26px;font-weight:500}
+.links a:hover{color:var(--coffee)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:var(--card);margin:4px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:absolute;left:12px;right:12px;top:80px;flex-direction:column;gap:0;background:var(--card);border-radius:24px;padding:10px 20px;box-shadow:0 20px 40px -20px rgba(42,29,22,.4);max-height:0;overflow:hidden;padding-block:0;transition:max-height .4s ease,padding .4s}
+  .links a{padding:14px 0;border-bottom:1px solid var(--bg)}
+  .nav-open .links{max-height:320px;padding-block:10px}
+  .nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+}
+/* bento */
+.bento{display:grid;gap:12px;padding:12px 0}
+@media(min-width:900px){.bento{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(150px,auto)}}
+.b{background:var(--card);border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.b-hero{background:var(--ink);color:var(--card);padding:36px 28px}
+@media(min-width:900px){.b-hero{grid-column:span 3;grid-row:span 2;padding:56px}}
+.b-hero h1{font-size:clamp(38px,6.4vw,78px)}
+.b-hero h1 span{color:var(--crema)}
+.b-hero p{color:#CDBFB3;max-width:44ch;margin:20px 0 28px;font-size:18px}
+.b-cup{background:var(--crema);display:grid;place-items:center;min-height:260px}
+@media(min-width:900px){.b-cup{grid-row:span 2}}
+.cup{width:150px}
+.cup .liq{transform-box:fill-box;transform-origin:bottom;animation:fill 3.2s ease-in-out infinite alternate}
+@keyframes fill{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+.cup .st{animation:steam 2.6s ease-in-out infinite;opacity:0}
+.cup .st:nth-of-type(2){animation-delay:1.3s}
+@keyframes steam{0%{opacity:0;transform:translateY(8px)}50%{opacity:.8}100%{opacity:0;transform:translateY(-14px)}}
+.b-stat b{font-family:"Unbounded";font-size:clamp(36px,4vw,52px);display:block;line-height:1}
+.b-mint{background:var(--mint)}
+.b-dark{background:var(--coffee);color:var(--card)}
+.b-wide{display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+@media(min-width:900px){.b-wide{grid-column:span 2}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.18);font-size:14px}
+section{padding:64px 0}
+@media(min-width:900px){section{padding:100px 0}}
+/* brew guide */
+.guide{display:grid;gap:20px;margin-top:32px}
+@media(min-width:900px){.guide{grid-template-columns:320px 1fr}}
+.methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(min-width:900px){.methods{grid-template-columns:1fr}}
+.m{display:flex;align-items:center;gap:12px;padding:16px;border-radius:20px;border:0;background:var(--card);font:inherit;font-weight:600;cursor:pointer;text-align:left;transition:background .25s,color .25s,transform .2s}
+.m:hover{transform:translateX(4px)}
+.m.on{background:var(--ink);color:var(--card)}
+.m i{font-style:normal;font-size:24px}
+.recipe{background:var(--card);border-radius:var(--r);padding:32px}
+.recipe h3{font-size:28px}
+.params{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:24px 0}
+@media(min-width:600px){.params{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.params div{background:var(--bg);border-radius:18px;padding:16px}
+.params small{color:var(--muted);font-size:13px;display:block}
+.params b{font-family:"Unbounded";font-size:22px}
+.bar{height:8px;border-radius:8px;background:var(--bg);overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--coffee);border-radius:8px;transition:width .6s ease}
+.swap{animation:sw .45s ease}
+@keyframes sw{from{opacity:0;transform:translateY(8px)}}
+/* menu */
+.prices{display:grid;gap:12px;margin-top:32px}
+@media(min-width:700px){.prices{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1000px){.prices{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.p{background:var(--card);border-radius:22px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:transform .25s}
+.p:hover{transform:translateY(-4px)}
+.p h3{font-family:"Golos Text";font-size:18px;font-weight:600;letter-spacing:0}
+.p small{color:var(--muted)}
+.p b{font-family:"Unbounded";white-space:nowrap}
+/* sub */
+.sub{background:var(--ink);color:var(--card);border-radius:var(--r);padding:40px 24px;display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.sub{grid-template-columns:1.2fr 1fr;padding:56px}}
+form{display:flex;gap:8px;flex-wrap:wrap;background:#3B2C24;padding:8px;border-radius:999px}
+input{flex:1;min-width:0;height:48px;border:0;background:transparent;color:var(--card);padding:0 16px;font:inherit}
+input::placeholder{color:#AE9C8F}
+form .btn{background:var(--crema);color:var(--ink)}
+.ok{display:none;color:var(--crema);font-weight:600;padding:12px 16px}
+.sent input,.sent .btn{display:none}.sent .ok{display:block}
+footer{padding:40px 0;color:var(--muted);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+.js .rv{opacity:0;transform:translateY(24px) scale(.98);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap" style="position:relative"><div class="nav">
+  <a href="#" class="logo">зерно.</a>
+  <nav class="links"><a href="#guide">Брю-гид</a><a href="#menu">Меню</a><a href="#sub">Подписка</a><a href="#contacts">Адрес</a></nav>
+  <a href="#menu" class="btn">Меню →</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></div></header>
+
+<div class="wrap"><div class="bento">
+  <div class="b b-hero rv">
+    <h1>Кофе, который <span>обжарили</span> вчера</h1>
+    <p>Своя обжарка в двух шагах от бара. Эспрессо, фильтр, воронка и аэропресс — и бариста, который расскажет про каждое зерно.</p>
+    <a href="#guide" class="btn l">Подобрать кофе →</a>
+  </div>
+  <div class="b b-cup rv">
+    <svg class="cup" viewBox="0 0 120 130" aria-hidden="true">
+      <path class="st" d="M45 20c-6-8 6-12 0-20" stroke="#2A1D16" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path class="st" d="M70 20c-6-8 6-12 0-20" stroke="#2A1D16" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <defs><clipPath id="c"><path d="M18 34h76l-8 72a14 14 0 0 1-14 12H40a14 14 0 0 1-14-12z"/></clipPath></defs>
+      <rect class="liq" x="0" y="40" width="120" height="80" fill="#6B4430" clip-path="url(#c)"/>
+      <path d="M18 34h76l-8 72a14 14 0 0 1-14 12H40a14 14 0 0 1-14-12z" fill="none" stroke="#2A1D16" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M94 48h6a12 12 0 0 1 0 24h-9" fill="none" stroke="#2A1D16" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="b b-stat b-mint rv"><b>8</b><span>сортов из 6 стран прямо сейчас</span></div>
+  <div class="b b-dark b-wide rv"><h3 style="font-size:22px">Обжариваем каждый вторник и пятницу</h3><div class="chips"><span>Эфиопия</span><span>Колумбия</span><span>Кения</span><span>Бразилия</span><span>Гватемала</span></div></div>
+  <div class="b b-stat rv"><b>07:00</b><span class="muted">открываемся в будни</span></div>
+</div></div>
+
+<section id="guide"><div class="wrap">
+  <h2 class="rv">Брю-гид</h2>
+  <p class="muted rv">Выберите способ заваривания — покажем наш рецепт.</p>
+  <div class="guide rv">
+    <div class="methods">
+      <button class="m on" data-i="0"><i>☕</i>Эспрессо</button>
+      <button class="m" data-i="1"><i>🫖</i>Воронка V60</button>
+      <button class="m" data-i="2"><i>🧪</i>Аэропресс</button>
+      <button class="m" data-i="3"><i>🧊</i>Колд брю</button>
+    </div>
+    <div class="recipe" id="rec"></div>
+  </div>
+</div></section>
+
+<section id="menu" style="padding-top:0"><div class="wrap">
+  <h2 class="rv">Меню бара</h2>
+  <div class="prices">
+    <div class="p rv"><div><h3>Эспрессо</h3><small>30 мл</small></div><b>160 ₽</b></div>
+    <div class="p rv"><div><h3>Флэт уайт</h3><small>200 мл</small></div><b>250 ₽</b></div>
+    <div class="p rv"><div><h3>Капучино</h3><small>250 / 350 мл</small></div><b>230 ₽</b></div>
+    <div class="p rv"><div><h3>Фильтр дня</h3><small>300 мл</small></div><b>220 ₽</b></div>
+    <div class="p rv"><div><h3>Раф солёная карамель</h3><small>350 мл</small></div><b>300 ₽</b></div>
+    <div class="p rv"><div><h3>Круассан миндальный</h3><small>своя выпечка</small></div><b>210 ₽</b></div>
+  </div>
+</div></section>
+
+<section id="sub" style="padding-top:0"><div class="wrap"><div class="sub rv">
+  <div><h2>Свежие зёрна раз в месяц</h2><p style="color:#CDBFB3;margin-top:12px">Подписка от 990 ₽: 250 г свежей обжарки и карточка с рецептом. Оставьте email — пришлём подробности.</p></div>
+  <form><input required type="email" placeholder="Ваш email"><button class="btn">Хочу</button><span class="ok">Спасибо! Письмо уже летит ☕</span></form>
+</div></div></section>
+
+<footer id="contacts"><div class="wrap"><span>зерно. © 2026 · демо</span><span>Покровка, 18 · 07:00–21:00</span><span>+7 (900) 000-00-00</span></div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+const D=[["Эспрессо","Плотный, сладкий, с нотами шоколада. Основа всех молочных напитков.",["18 г","36 мл","28 сек","93°"],80],
+["Воронка V60","Чистый и яркий вкус: ягоды, цитрус, чайная кислотность.",["15 г","250 мл","3 мин","94°"],45],
+["Аэропресс","Насыщенный, с плотным телом. Удобно заварить дома или в поездке.",["17 г","220 мл","2 мин","88°"],60],
+["Колд брю","Мягкий и сладкий, почти без горечи. Настаиваем 16 часов.",["70 г","1 л","16 ч","холод"],35]];
+const L=["Кофе","Вода","Время","Темп."],rec=document.getElementById('rec');
+function show(i){const d=D[i];rec.innerHTML=`<div class="swap"><h3>${d[0]}</h3><p class="muted" style="margin-top:8px">${d[1]}</p><div class="params">${d[2].map((v,j)=>`<div><small>${L[j]}</small><b>${v}</b></div>`).join('')}</div><small class="muted">Интенсивность</small><div class="bar"><i style="width:0"></i></div></div>`;requestAnimationFrame(()=>requestAnimationFrame(()=>rec.querySelector('.bar i').style.width=d[3]+'%'))}
+document.querySelectorAll('.m').forEach(b=>b.onclick=()=>{document.querySelectorAll('.m').forEach(x=>x.classList.remove('on'));b.classList.add('on');show(+b.dataset.i)});show(0);
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>

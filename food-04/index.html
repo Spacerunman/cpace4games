@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMASH — бургерная</title>
+<meta name="description" content="SMASH — смэш-бургеры из мраморной говядины, картошка фри и милкшейки. Доставка за 30 минут.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFD60A;--ink:#111;--pink:#FF5DA2;--blue:#3A86FF;--green:#06D6A0;--paper:#FFF8E1;--b:3px solid var(--ink);--sh:6px 6px 0 var(--ink)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Rubik",system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-family:"Rubik Mono One",system-ui,sans-serif;font-weight:400;line-height:1.05;text-transform:uppercase}
+h2{font-size:clamp(28px,5vw,56px)}
+section{padding:72px 0}
+@media(min-width:900px){section{padding:100px 0}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 26px;background:var(--pink);color:var(--ink);border:var(--b);box-shadow:var(--sh);font:inherit;font-weight:800;font-size:17px;text-transform:uppercase;cursor:pointer;border-radius:14px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.btn.w{background:#fff}
+header{position:sticky;top:0;z-index:20;background:var(--y);border-bottom:var(--b)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:12px}
+.logo{font-family:"Rubik Mono One";font-size:24px;display:flex;align-items:center;gap:8px}
+.links{display:flex;gap:8px}
+.links a{padding:8px 14px;border-radius:999px;font-weight:700;border:2px solid transparent;transition:.2s}
+.links a:hover{border-color:var(--ink);background:#fff}
+.cart{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 16px;background:#fff;border:var(--b);border-radius:999px;font-weight:800;box-shadow:3px 3px 0 var(--ink)}
+.cart b{background:var(--ink);color:var(--y);min-width:26px;height:26px;border-radius:999px;display:grid;place-items:center;font-size:14px;padding:0 6px}
+.cart.pop{animation:pop .4s}
+@keyframes pop{40%{transform:scale(1.18) rotate(-4deg)}}
+.burger{display:none;width:46px;height:46px;border:var(--b);border-radius:12px;background:#fff;cursor:pointer}
+.burger span{display:block;width:20px;height:3px;background:var(--ink);margin:4px auto}
+@media(max-width:860px){
+  .burger{display:block}
+  .links{position:fixed;left:12px;right:12px;top:82px;flex-direction:column;background:#fff;border:var(--b);box-shadow:var(--sh);border-radius:18px;padding:10px;transform:scale(.9);opacity:0;pointer-events:none;transition:.25s;transform-origin:top right}
+  .links a{padding:14px;font-size:18px}
+  .nav-open .links{transform:none;opacity:1;pointer-events:auto}
+  .logo{font-size:20px}
+}
+/* hero */
+.hero{background:var(--y);border-bottom:var(--b);padding:48px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.2fr 1fr}}
+.hero h1{font-size:clamp(40px,8vw,92px)}
+.hero h1 .hl{background:var(--ink);color:var(--y);padding:0 .15em;display:inline-block;transform:rotate(-2deg)}
+.hero p{font-size:19px;font-weight:500;max-width:40ch;margin:22px 0 30px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.burger-art{position:relative;width:min(440px,84vw);aspect-ratio:1;margin:0 auto}
+.circle{position:absolute;inset:6%;background:var(--pink);border:var(--b);border-radius:50%;box-shadow:var(--sh)}
+.burger-art .em{position:absolute;inset:0;display:grid;place-items:center;font-size:min(200px,40vw);animation:jump 2.4s ease-in-out infinite}
+@keyframes jump{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(3deg)}}
+.sticker{position:absolute;top:-4%;right:-2%;width:clamp(100px,22vw,140px);aspect-ratio:1;background:var(--green);border:var(--b);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:"Rubik Mono One";font-size:clamp(12px,2.4vw,15px);line-height:1.15;animation:spin 10s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ticker */
+.tick{background:var(--ink);color:var(--y);border-bottom:var(--b);overflow:hidden;transform:rotate(-1.5deg);margin:24px -20px 0;padding:14px 0;white-space:nowrap}
+.tick div{display:inline-flex;gap:28px;animation:mq 16s linear infinite;font-family:"Rubik Mono One";font-size:22px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* menu */
+.grid{display:grid;gap:12px;margin-top:40px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:640px){.grid{gap:20px}}
+@media(max-width:639px){.item .top{height:100px;font-size:54px}.item .body{padding:12px}.item h3{font-size:13px}.item p{font-size:13px}.item strong{font-size:18px}.add{width:38px;height:38px}.item{box-shadow:4px 4px 0 var(--ink);border-radius:16px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.item{background:#fff;border:var(--b);border-radius:20px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s}
+.item:hover{transform:rotate(-1.2deg) translateY(-4px)}
+.item .top{height:150px;display:grid;place-items:center;font-size:80px;border-bottom:var(--b)}
+.item:nth-child(4n+1) .top{background:var(--y)}.item:nth-child(4n+2) .top{background:var(--blue)}.item:nth-child(4n+3) .top{background:var(--green)}.item:nth-child(4n+4) .top{background:var(--pink)}
+.item .body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.item h3{font-size:17px}
+.item p{font-size:15px;opacity:.75}
+.item .row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:10px}
+.item strong{font-size:24px;font-weight:800}
+.add{width:46px;height:46px;border-radius:12px;border:var(--b);background:var(--y);font-size:24px;font-weight:800;cursor:pointer;transition:transform .15s}
+.add:active{transform:scale(.88)}
+/* why */
+.why{display:grid;gap:16px;margin-top:40px}
+@media(min-width:800px){.why{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.why div{border:var(--b);border-radius:20px;padding:28px;background:#fff}
+.why div:nth-child(2){background:var(--blue);color:#fff}
+.why b{font-family:"Rubik Mono One";font-size:44px;display:block}
+/* cta */
+.cta{background:var(--pink);border:var(--b);border-radius:28px;box-shadow:10px 10px 0 var(--ink);padding:40px 24px;display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.cta{grid-template-columns:1.3fr 1fr;padding:56px}}
+form{display:grid;gap:12px}
+input{height:56px;border:var(--b);border-radius:14px;padding:0 16px;font:inherit;font-weight:500;background:#fff;width:100%}
+.fields{display:contents}.ok{display:none;background:#fff;border:var(--b);border-radius:14px;padding:18px;font-weight:700}
+.sent .ok{display:block}.sent .fields{display:none}
+footer{background:var(--ink);color:var(--y);padding:40px 0;margin-top:72px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-weight:700}
+.js .rv{opacity:0;transform:translateY(30px) scale(.97);transition:opacity .6s,transform .6s cubic-bezier(.3,1.4,.5,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo">🍔 SMASH</a>
+  <nav class="links"><a href="#menu">Меню</a><a href="#why">Почему мы</a><a href="#order">Доставка</a></nav>
+  <div style="display:flex;gap:8px;align-items:center"><a href="#order" class="cart">Корзина <b id="cnt">0</b></a><button class="burger" aria-label="Меню"><span></span><span></span><span></span></button></div>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="rv">
+    <h1>Бургеры, <span class="hl">которые</span> капают на руки</h1>
+    <p>Смэшим котлету из мраморной говядины прямо на раскалённой плите. Хрустящая корочка, сочная серединка, двойной чеддер.</p>
+    <div class="actions"><a href="#menu" class="btn">Заказать</a><a href="#why" class="btn w">Наши фишки</a></div>
+  </div>
+  <div class="burger-art rv"><div class="circle"></div><div class="em">🍔</div><div class="sticker">30 мин<br>или<br>бесплатно</div></div>
+</div>
+<div class="tick" aria-hidden="true"><div><span>SMASH IT ★ DOUBLE CHEESE ★ FRIES ★ SHAKES ★ SMASH IT ★ DOUBLE CHEESE ★ FRIES ★ SHAKES ★</span><span>SMASH IT ★ DOUBLE CHEESE ★ FRIES ★ SHAKES ★ SMASH IT ★ DOUBLE CHEESE ★ FRIES ★ SHAKES ★</span></div></div>
+</section>
+
+<section id="menu"><div class="wrap">
+  <h2 class="rv">Меню</h2>
+  <div class="grid">
+    <div class="item rv"><div class="top">🍔</div><div class="body"><h3>Классик смэш</h3><p>Котлета, чеддер, лук, пикули, фирменный соус</p><div class="row"><strong>390 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🧀</div><div class="body"><h3>Дабл чиз</h3><p>Две котлеты, двойной чеддер, бекон</p><div class="row"><strong>520 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🌶️</div><div class="body"><h3>Хот смэш</h3><p>Халапеньо, острый майонез, перец пеппер-джек</p><div class="row"><strong>460 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🍟</div><div class="body"><h3>Фри с трюфелем</h3><p>Хрустящий картофель, пармезан, трюфельное масло</p><div class="row"><strong>240 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🥤</div><div class="body"><h3>Милкшейк</h3><p>Ваниль, шоколад или солёная карамель</p><div class="row"><strong>290 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🍗</div><div class="body"><h3>Крылья BBQ</h3><p>8 штук, соус барбекю, сельдерей</p><div class="row"><strong>420 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🥗</div><div class="body"><h3>Коул слоу</h3><p>Капуста, морковь, лёгкая заправка</p><div class="row"><strong>150 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+    <div class="item rv"><div class="top">🌱</div><div class="body"><h3>Вегги смэш</h3><p>Растительная котлета, авокадо, томат</p><div class="row"><strong>440 ₽</strong><button class="add" aria-label="В корзину">+</button></div></div></div>
+  </div>
+</div></section>
+
+<section id="why" style="padding-top:0"><div class="wrap">
+  <h2 class="rv">Почему SMASH</h2>
+  <div class="why">
+    <div class="rv"><b>100%</b><h3 style="font-size:17px;margin:8px 0">Говядина</h3><p>Мраморная говядина, фарш крутим сами каждое утро.</p></div>
+    <div class="rv"><b>30′</b><h3 style="font-size:17px;margin:8px 0">Доставка</h3><p>Опоздаем — бургер за наш счёт. Честно.</p></div>
+    <div class="rv"><b>4.9★</b><h3 style="font-size:17px;margin:8px 0">Рейтинг</h3><p>Более 3 000 отзывов в приложениях доставки.</p></div>
+  </div>
+</div></section>
+
+<section id="order" style="padding-top:0"><div class="wrap"><div class="cta rv">
+  <div><h2>Голоден? Привезём!</h2><p style="margin-top:12px;font-weight:500;font-size:18px">Оставьте телефон — оператор перезвонит и примет заказ. Бесплатная доставка от 1000 ₽.</p></div>
+  <form><div class="fields"><input required placeholder="Имя"><input required type="tel" placeholder="Телефон"><button class="btn w">Жду звонка</button></div><div class="ok">🍔 Принято! Перезвоним через минуту.</div></form>
+</div></div></section>
+
+<footer><div class="wrap"><span>SMASH © 2026 · демо</span><span>ул. Бургерная, 1 · 11:00–02:00</span><span>+7 (900) 000-00-00</span></div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+let n=0;const c=document.getElementById('cnt'),cart=document.querySelector('.cart');
+document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{c.textContent=++n;cart.classList.remove('pop');void cart.offsetWidth;cart.classList.add('pop')});
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>

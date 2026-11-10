@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sol — тапас-бар</title>
+<meta name="description" content="Sol — испанский тапас-бар: тапас, паэлья, хамон и сангрия. Живая гитара по пятницам.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFDF7;--ink:#14213D;--muted:#5B6683;--blue:#1D4ED8;--navy:#14213D;--saffron:#F4B000;--tomato:#E4572E;--sand:#F5ECD7;--r:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Montserrat",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-family:"Yeseva One",Georgia,serif;font-weight:400;line-height:1.08}
+h2{font-size:clamp(32px,5vw,58px)}
+section{padding:72px 0}
+@media(min-width:900px){section{padding:110px 0}}
+.muted{color:var(--muted)}
+.tile{--t:var(--blue);background-color:#fff;background-image:
+radial-gradient(circle at 50% 50%,var(--t) 0 14%,transparent 15%),
+radial-gradient(circle at 0 0,var(--t) 0 22%,transparent 23%),
+radial-gradient(circle at 100% 0,var(--t) 0 22%,transparent 23%),
+radial-gradient(circle at 0 100%,var(--t) 0 22%,transparent 23%),
+radial-gradient(circle at 100% 100%,var(--t) 0 22%,transparent 23%),
+conic-gradient(from 45deg at 50% 50%,transparent 0 25%,rgba(29,78,216,.18) 0 50%,transparent 0 75%,rgba(29,78,216,.18) 0);background-size:64px 64px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 28px;border-radius:999px;background:var(--tomato);color:#fff;font:inherit;font-weight:700;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{background:#C9431D;transform:translateY(-2px)}
+.btn.b{background:var(--navy)}
+.btn.y{background:var(--saffron);color:var(--ink)}
+header{position:sticky;top:0;z-index:20;background:var(--bg);box-shadow:0 1px 0 #EDE6D3}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:"Yeseva One";font-size:30px;display:flex;align-items:center;gap:10px}
+.sun{width:30px;height:30px;border-radius:50%;background:var(--saffron);box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--saffron);animation:spin 12s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.links{display:flex;gap:28px;font-weight:500}
+.links a{position:relative}
+.links a::before{content:"";position:absolute;left:50%;bottom:-6px;width:6px;height:6px;border-radius:50%;background:var(--tomato);transform:translateX(-50%) scale(0);transition:transform .25s}
+.links a:hover::before{transform:translateX(-50%) scale(1)}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:6px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:fixed;left:0;right:0;top:72px;flex-direction:column;gap:0;background:var(--bg);padding:0 16px;max-height:0;overflow:hidden;transition:max-height .4s}
+  .links a{padding:14px 0;border-top:1px solid #EDE6D3;font-size:18px}
+  .links a::before{display:none}
+  .nav-open .links{max-height:300px}
+  .nav-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+/* hero */
+.hero{padding:32px 0 0}
+.hgrid{display:grid;gap:16px}
+@media(min-width:900px){.hgrid{grid-template-columns:1.25fr 1fr}}
+.hmain{background:var(--sand);border-radius:28px;padding:36px 24px;display:flex;flex-direction:column;justify-content:center}
+@media(min-width:900px){.hmain{padding:64px}}
+.hmain h1{font-size:clamp(44px,7.6vw,92px)}
+.hmain h1 span{color:var(--tomato)}
+.hmain p{font-size:18px;max-width:42ch;margin:20px 0 28px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hside{display:grid;gap:16px;grid-template-rows:1fr auto}
+.htile{border-radius:28px;min-height:260px;display:grid;place-items:center;position:relative;overflow:hidden}
+.htile .plate{width:62%;aspect-ratio:1;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:clamp(80px,16vw,130px);box-shadow:0 0 0 10px var(--saffron),0 30px 50px -20px rgba(20,33,61,.5);animation:wob 6s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(8deg) scale(1.03)}}
+.happy{background:var(--navy);color:#fff;border-radius:28px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.happy b{font-family:"Yeseva One";font-size:24px;font-weight:400;color:var(--saffron)}
+/* tapas flip */
+.flip{display:grid;gap:14px;margin-top:36px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.flip{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.fc{perspective:1000px;aspect-ratio:3/4;cursor:pointer}
+.fi{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.3,1.2,.4,1);transform-style:preserve-3d}
+@media(hover:hover){.fc:hover .fi{transform:rotateY(180deg)}}
+.fc.on .fi{transform:rotateY(180deg)}
+.side{position:absolute;inset:0;border-radius:var(--r);backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.front{background:#fff;border:2px solid var(--ink)}
+.front .e{font-size:clamp(54px,11vw,80px);text-align:center;flex:1;display:grid;place-items:center}
+.front h3{font-size:clamp(17px,2vw,22px)}
+.front small{color:var(--muted);font-size:12px}
+.back{background:var(--blue);color:#fff;transform:rotateY(180deg)}
+.back p{font-size:14px}
+.back b{font-family:"Yeseva One";font-weight:400;font-size:28px;color:var(--saffron)}
+.hint{text-align:center;color:var(--muted);font-size:14px;margin-top:16px}
+/* paella */
+.split{display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:64px}}
+.pan{aspect-ratio:1;max-width:460px;width:100%;margin:0 auto;border-radius:50%;background:radial-gradient(circle,#F7C948 0 58%,#E3A21A 60% 64%,#2B2B2B 65% 70%,transparent 71%);display:grid;place-items:center;position:relative}
+.pan span{position:absolute;font-size:clamp(26px,5vw,40px);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.list{list-style:none;margin-top:24px;display:grid;gap:2px}
+.list li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px dashed #D9CFB6}
+.list b{font-family:"Yeseva One";font-weight:400;font-size:20px;white-space:nowrap}
+/* events */
+.ev{display:grid;gap:16px;margin-top:36px}
+@media(min-width:800px){.ev{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.evc{border-radius:var(--r);padding:28px;color:#fff;transition:transform .3s}
+.evc:hover{transform:translateY(-6px)}
+.evc .d{font-family:"Yeseva One";font-size:44px;line-height:1}
+.evc h3{font-size:24px;margin:12px 0 6px}
+/* book */
+.book{border-radius:32px;overflow:hidden;display:grid}
+@media(min-width:900px){.book{grid-template-columns:1fr 1fr}}
+.book .l{background:var(--navy);color:#fff;padding:40px 24px}
+@media(min-width:900px){.book .l{padding:56px}}
+.book .r{min-height:200px}
+form{display:grid;gap:12px;margin-top:24px}
+@media(min-width:560px){form{grid-template-columns:repeat(2,minmax(0,1fr))}.full{grid-column:1/-1}}
+input,select{height:54px;border-radius:14px;border:0;padding:0 16px;font:inherit;width:100%}
+.fields{display:contents}.ok{display:none;background:var(--saffron);color:var(--ink);border-radius:14px;padding:18px;font-weight:700}
+.sent .ok{display:block}.sent .fields{display:none}
+footer{padding:40px 0;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><i class="sun"></i>Sol</a>
+  <nav class="links"><a href="#tapas">Тапас</a><a href="#paella">Паэлья</a><a href="#events">Вечера</a><a href="#book">Бронь</a></nav>
+  <a href="#book" class="btn">Забронировать</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></header>
+
+<section class="hero"><div class="wrap hgrid">
+  <div class="hmain rv">
+    <h1>¡Hola! Испания <span>на тарелке</span></h1>
+    <p class="muted">Тапас для большой компании, паэлья на открытом огне, хамон 36-месячной выдержки и кувшин холодной сангрии.</p>
+    <div class="actions"><a href="#tapas" class="btn">Смотреть тапас</a><a href="#book" class="btn b">Забронировать</a></div>
+  </div>
+  <div class="hside">
+    <div class="htile tile rv"><div class="plate">🥘</div></div>
+    <div class="happy rv"><div><b>Счастливые часы</b><br>Пн–Чт 16:00–19:00</div><span class="btn y" style="height:44px;padding:0 18px">−30% на сангрию</span></div>
+  </div>
+</div></section>
+
+<section id="tapas"><div class="wrap">
+  <h2 class="rv">Тапас</h2>
+  <p class="muted rv">Наведите или нажмите на карточку, чтобы узнать подробнее.</p>
+  <div class="flip">
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 1 · хит</small><div class="e">🍤</div><h3>Гамбас</h3></div><div class="side back"><p>Креветки в оливковом масле с чесноком и чили. Подаём шкворчащими.</p><b>620 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 2</small><div class="e">🥔</div><h3>Патата брава</h3></div><div class="side back"><p>Хрустящий картофель, острый томатный соус и айоли.</p><b>320 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 3</small><div class="e">🍖</div><h3>Хамон иберико</h3></div><div class="side back"><p>36 месяцев выдержки, нарезка вручную, хлеб с томатом.</p><b>890 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 4</small><div class="e">🫒</div><h3>Оливки и манчего</h3></div><div class="side back"><p>Маринованные оливки и овечий сыр с айвовым джемом.</p><b>450 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 5</small><div class="e">🥚</div><h3>Тортилья</h3></div><div class="side back"><p>Испанский омлет с картофелем и луком, нежный внутри.</p><b>340 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 6</small><div class="e">🐙</div><h3>Пульпо а фейра</h3></div><div class="side back"><p>Осьминог по-галисийски, копчёная паприка, картофель.</p><b>980 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 7</small><div class="e">🌶️</div><h3>Падрон</h3></div><div class="side back"><p>Жареные перчики с морской солью. Каждый десятый — острый!</p><b>360 ₽</b></div></div></div>
+    <div class="fc rv"><div class="fi"><div class="side front"><small>№ 8</small><div class="e">🍮</div><h3>Каталана</h3></div><div class="side back"><p>Каталонский крем с карамельной корочкой.</p><b>310 ₽</b></div></div></div>
+  </div>
+</div></section>
+
+<section id="paella" style="background:var(--sand)"><div class="wrap split">
+  <div class="pan rv"><span style="top:30%;left:30%">🦐</span><span style="top:28%;left:58%;animation-delay:-1s">🍋</span><span style="top:52%;left:22%;animation-delay:-2s">🦪</span><span style="top:54%;left:56%;animation-delay:-.5s">🦐</span><span style="top:42%;left:42%;animation-delay:-1.5s">🫑</span></div>
+  <div class="rv">
+    <h2>Паэлья на огне</h2>
+    <p class="muted" style="margin-top:12px">Готовим 40 минут в настоящей паэльере с шафраном из Ла-Манчи. Сковорода на 2 или 4 персоны.</p>
+    <ul class="list">
+      <li><span>Морская · креветки, мидии, кальмар</span><b>1 900 ₽</b></li>
+      <li><span>Валенсийская · курица, кролик, фасоль</span><b>1 700 ₽</b></li>
+      <li><span>Чёрная · с чернилами каракатицы</span><b>2 100 ₽</b></li>
+      <li><span>Сангрия · кувшин 1 л</span><b>1 200 ₽</b></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="events"><div class="wrap">
+  <h2 class="rv">Вечера в Sol</h2>
+  <div class="ev">
+    <div class="evc rv" style="background:var(--tomato)"><div class="d">Пт</div><h3>Живая гитара</h3><p>Фламенко и испанская классика с 20:00</p></div>
+    <div class="evc rv" style="background:var(--blue)"><div class="d">Сб</div><h3>Паэлья-шоу</h3><p>Шеф готовит огромную паэлью прямо в зале</p></div>
+    <div class="evc rv" style="background:var(--navy)"><div class="d">Вс</div><h3>Семейный бранч</h3><p>Чуррос с шоколадом для детей в подарок</p></div>
+  </div>
+</div></section>
+
+<section id="book" style="padding-top:0"><div class="wrap"><div class="book rv">
+  <div class="l"><h2>Reserva</h2><p style="opacity:.8;margin-top:8px">Ежедневно 12:00–01:00. Ул. Морская, 15.</p>
+    <form><div class="fields"><input required placeholder="Имя"><input required type="tel" placeholder="Телефон"><input required type="date"><select><option>2 персоны</option><option>4 персоны</option><option>6+ персон</option></select><button class="btn full">Забронировать</button></div><div class="ok full">¡Gracias! Перезвоним для подтверждения.</div></form>
+  </div>
+  <div class="r tile"></div>
+</div></div></section>
+
+<footer><div class="wrap"><span>Sol © 2026 · демо</span><span>Морская, 15 · 12:00–01:00</span><span>+7 (900) 000-00-00</span></div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+if(!matchMedia('(hover:hover)').matches)document.querySelectorAll('.fc').forEach(c=>c.onclick=()=>c.classList.toggle('on'));
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>

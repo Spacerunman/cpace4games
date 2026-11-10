@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пицца Пронто — доставка пиццы</title>
+<meta name="description" content="Пицца Пронто — горячая пицца за 35 минут. Выберите размер, тесто и добавки онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F6F4;--card:#fff;--ink:#1B1B1F;--muted:#6E6E78;--red:#EE3124;--red-d:#C81E12;--green:#1E9E5A;--cheese:#FFC94A;--r:24px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Rubik",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden;padding-bottom:80px}
+@media(min-width:900px){body{padding-bottom:0}}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-family:"Russo One",system-ui,sans-serif;font-weight:400;line-height:1.08}
+h2{font-size:clamp(28px,4.4vw,46px)}
+section{padding:64px 0}
+@media(min-width:900px){section{padding:96px 0}}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:16px;background:var(--red);color:#fff;font:inherit;font-weight:700;border:0;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{background:var(--red-d);transform:translateY(-2px)}
+.btn.g{background:var(--ink)}
+header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 1px 0 #ECECEA}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Russo One";font-size:20px}
+.logo i{width:36px;height:36px;border-radius:50%;background:conic-gradient(var(--cheese) 0 300deg,transparent 0),var(--red);display:block;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.links{display:flex;gap:26px;font-weight:500}
+.links a:hover{color:var(--red)}
+.phone{font-weight:700;display:none}
+@media(min-width:1000px){.phone{display:block}}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:0;background:var(--bg);cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:fixed;left:0;right:0;top:68px;flex-direction:column;gap:0;background:#fff;padding:0 16px;max-height:0;overflow:hidden;transition:max-height .35s}
+  .links a{padding:14px 0;border-top:1px solid #ECECEA;font-size:18px}
+  .nav-open .links{max-height:300px}
+  .nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+}
+/* hero */
+.hero{padding:24px 0 0}
+.hcard{background:var(--red);color:#fff;border-radius:32px;padding:36px 24px;display:grid;gap:24px;align-items:center;overflow:hidden;position:relative}
+@media(min-width:900px){.hcard{grid-template-columns:1.1fr 1fr;padding:64px}}
+.hcard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.12) 2px,transparent 2.5px) 0 0/26px 26px}
+.hcard>*{position:relative}
+.hcard h1{font-size:clamp(38px,6.6vw,76px)}
+.hcard p{font-size:18px;opacity:.9;max-width:40ch;margin:18px 0 28px}
+.hcard .btn{background:#fff;color:var(--red)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.badges span{background:rgba(255,255,255,.16);padding:8px 14px;border-radius:999px;font-weight:500;font-size:14px}
+/* CSS pizza */
+.pz-wrap{display:grid;place-items:center}
+.pizza{width:min(380px,72vw);aspect-ratio:1;border-radius:50%;background:#E8A957;padding:5%;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);animation:spin 30s linear infinite;transition:width .5s cubic-bezier(.3,1.4,.5,1)}
+.pizza .sauce{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 50% 50%,#FFD36E 0 55%,#FFC94A 56%,#F2B33A 70%,#E0542E 72%);position:relative;overflow:hidden}
+.pizza .sauce::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(transparent 0 44deg,rgba(150,80,20,.35) 44deg 45deg)}
+.pep{position:absolute;width:16%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 40%,#E5533C,#B5301E);box-shadow:inset 0 0 0 3px rgba(0,0,0,.08)}
+.bas{position:absolute;width:9%;aspect-ratio:2/1;border-radius:50% 0;background:var(--green)}
+/* builder */
+.build{display:grid;gap:24px;margin-top:32px}
+@media(min-width:900px){.build{grid-template-columns:1fr 1fr;align-items:center}}
+.panel{background:var(--card);border-radius:var(--r);padding:24px}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--bg);border-radius:14px;padding:4px;position:relative;margin:10px 0 20px}
+.seg button{position:relative;z-index:1;height:44px;border:0;background:none;font:inherit;font-weight:700;cursor:pointer;border-radius:10px;transition:color .2s}
+.seg .thumb{position:absolute;top:4px;bottom:4px;left:4px;width:calc((100% - 8px)/3);background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:transform .35s cubic-bezier(.3,1.3,.5,1)}
+.adds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0 20px}
+.adds label{display:flex;align-items:center;gap:10px;padding:12px;border-radius:14px;background:var(--bg);cursor:pointer;font-weight:500;font-size:15px;transition:background .2s}
+.adds input{accent-color:var(--red);width:18px;height:18px}
+.adds label:has(input:checked){background:#FDE7E5}
+.price{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.price b{font-family:"Russo One";font-size:34px}
+/* menu */
+.cats{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;margin-top:24px;scrollbar-width:none}
+.cats button{flex:none;height:42px;padding:0 18px;border-radius:999px;border:0;background:#fff;font:inherit;font-weight:500;cursor:pointer;transition:.2s}
+.cats button.on{background:var(--ink);color:#fff}
+.items{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.items{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.it{background:var(--card);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:6px;transition:transform .25s,box-shadow .25s}
+.it:hover{transform:translateY(-4px);box-shadow:0 18px 30px -20px rgba(0,0,0,.35)}
+.it.hide{display:none}
+.it .pic{aspect-ratio:1;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:clamp(50px,10vw,76px);margin-bottom:6px;transition:transform .5s}
+.it:hover .pic{transform:rotate(25deg)}
+.it h3{font-family:"Rubik";font-weight:700;font-size:17px}
+.it p{font-size:14px;color:var(--muted);flex:1}
+.it .row{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.it .row b{font-size:18px}
+.it button{flex:none;height:38px;padding:0 14px;border-radius:12px;border:0;background:#FDE7E5;color:var(--red);font:inherit;font-weight:700;cursor:pointer}
+@media(max-width:560px){.it .row{flex-direction:column;align-items:stretch;gap:8px}.it button{width:100%}}
+/* track */
+.track{display:grid;gap:12px;margin-top:32px}
+@media(min-width:800px){.track{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tst{background:var(--card);border-radius:var(--r);padding:24px;position:relative;overflow:hidden}
+.tst .e{font-size:36px}
+.tst h3{font-size:18px;margin:12px 0 4px}
+.tst .pr{position:absolute;left:0;bottom:0;height:5px;width:0;background:var(--red);transition:width 1s ease}
+.track.go .tst .pr{width:100%}
+.track.go .tst:nth-child(2) .pr{transition-delay:1s}.track.go .tst:nth-child(3) .pr{transition-delay:2s}.track.go .tst:nth-child(4) .pr{transition-delay:3s}
+footer{padding:40px 0;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+/* cart bar */
+.bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--ink);color:#fff;border-radius:18px;padding:10px 10px 10px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 20px 40px -10px rgba(0,0,0,.4);transform:translateY(140%);transition:transform .4s cubic-bezier(.3,1.3,.5,1)}
+.bar.show{transform:none}
+@media(min-width:900px){.bar{left:auto;right:24px;bottom:24px;width:360px}}
+.bar .btn{height:46px}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><i></i>Пицца Пронто</a>
+  <nav class="links"><a href="#build">Конструктор</a><a href="#menu">Меню</a><a href="#track">Доставка</a></nav>
+  <a class="phone" href="tel:+79000000000">8 800 000-00-00</a>
+  <a href="#menu" class="btn">Заказать</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></header>
+
+<section class="hero"><div class="wrap"><div class="hcard rv">
+  <div>
+    <h1>Горячая пицца за 35 минут</h1>
+    <p>Тонкое тесто, моцарелла и томаты из Италии. Опоздаем — следующая пицца бесплатно.</p>
+    <a href="#menu" class="btn">Выбрать пиццу →</a>
+    <div class="badges"><span>🔥 печь 400°</span><span>🛵 35 мин</span><span>⭐ 4.9</span></div>
+  </div>
+  <div class="pz-wrap"><div class="pizza" id="pz"><div class="sauce">
+    <i class="pep" style="top:18%;left:30%"></i><i class="pep" style="top:28%;left:60%"></i><i class="pep" style="top:52%;left:20%"></i><i class="pep" style="top:58%;left:56%"></i><i class="pep" style="top:40%;left:40%"></i><i class="pep" style="top:72%;left:38%"></i>
+    <i class="bas" style="top:20%;left:52%"></i><i class="bas" style="top:46%;left:70%;transform:rotate(60deg)"></i><i class="bas" style="top:68%;left:24%;transform:rotate(-30deg)"></i><i class="bas" style="top:36%;left:22%;transform:rotate(90deg)"></i>
+  </div></div></div>
+</div></div></section>
+
+<section id="build"><div class="wrap">
+  <h2 class="rv">Соберите свою пиццу</h2>
+  <div class="build">
+    <div class="panel rv">
+      <strong>Размер</strong>
+      <div class="seg" id="size"><span class="thumb"></span><button data-s="0">25 см</button><button data-s="1">30 см</button><button data-s="2">35 см</button></div>
+      <strong>Тесто</strong>
+      <div class="seg" id="dough" style="grid-template-columns:repeat(2,minmax(0,1fr))"><span class="thumb" style="width:calc((100% - 8px)/2)"></span><button>Тонкое</button><button>Традиционное</button></div>
+      <strong>Добавки</strong>
+      <div class="adds">
+        <label><input type="checkbox" data-p="79">🧀 Сыр</label><label><input type="checkbox" data-p="99">🥓 Бекон</label>
+        <label><input type="checkbox" data-p="59">🍄 Грибы</label><label><input type="checkbox" data-p="49">🌶️ Халапеньо</label>
+      </div>
+      <div class="price"><b id="pr">499 ₽</b><button class="btn add-cart" data-p="0">В корзину</button></div>
+    </div>
+    <div class="rv muted" style="text-align:center">Размер пиццы на картинке выше меняется вместе с выбором 👆<br>Цена пересчитывается мгновенно.</div>
+  </div>
+</div></section>
+
+<section id="menu" style="padding-top:0"><div class="wrap">
+  <h2 class="rv">Меню</h2>
+  <div class="cats rv"><button class="on" data-c="all">Все</button><button data-c="pizza">Пицца</button><button data-c="snack">Закуски</button><button data-c="drink">Напитки</button></div>
+  <div class="items">
+    <div class="it rv" data-c="pizza"><div class="pic">🍕</div><h3>Пепперони</h3><p>Пикантная колбаса, моцарелла</p><div class="row"><b>549 ₽</b><button class="add-cart" data-p="549">+ В корзину</button></div></div>
+    <div class="it rv" data-c="pizza"><div class="pic">🧀</div><h3>Четыре сыра</h3><p>Моцарелла, горгонзола, пармезан, чеддер</p><div class="row"><b>599 ₽</b><button class="add-cart" data-p="599">+ В корзину</button></div></div>
+    <div class="it rv" data-c="pizza"><div class="pic">🍍</div><h3>Гавайская</h3><p>Ветчина, ананас, моцарелла</p><div class="row"><b>529 ₽</b><button class="add-cart" data-p="529">+ В корзину</button></div></div>
+    <div class="it rv" data-c="pizza"><div class="pic">🥬</div><h3>Маргарита</h3><p>Томаты, моцарелла, базилик</p><div class="row"><b>449 ₽</b><button class="add-cart" data-p="449">+ В корзину</button></div></div>
+    <div class="it rv" data-c="snack"><div class="pic">🍗</div><h3>Крылышки</h3><p>8 шт, соус BBQ</p><div class="row"><b>379 ₽</b><button class="add-cart" data-p="379">+ В корзину</button></div></div>
+    <div class="it rv" data-c="snack"><div class="pic">🧄</div><h3>Чесночные хлебцы</h3><p>С сыром и зеленью</p><div class="row"><b>199 ₽</b><button class="add-cart" data-p="199">+ В корзину</button></div></div>
+    <div class="it rv" data-c="drink"><div class="pic">🥤</div><h3>Лимонад</h3><p>Клубника-базилик, 0,5 л</p><div class="row"><b>159 ₽</b><button class="add-cart" data-p="159">+ В корзину</button></div></div>
+    <div class="it rv" data-c="drink"><div class="pic">🧃</div><h3>Морс</h3><p>Клюквенный, 0,5 л</p><div class="row"><b>139 ₽</b><button class="add-cart" data-p="139">+ В корзину</button></div></div>
+  </div>
+</div></section>
+
+<section id="track" style="padding-top:0"><div class="wrap">
+  <h2 class="rv">Как мы доставляем</h2>
+  <div class="track" id="trk">
+    <div class="tst"><div class="e">📱</div><h3>Заказ принят</h3><p class="muted">Сразу передаём на кухню</p><i class="pr"></i></div>
+    <div class="tst"><div class="e">👨‍🍳</div><h3>Готовим</h3><p class="muted">7 минут в печи 400°</p><i class="pr"></i></div>
+    <div class="tst"><div class="e">🛵</div><h3>В пути</h3><p class="muted">Термосумка держит тепло</p><i class="pr"></i></div>
+    <div class="tst"><div class="e">😋</div><h3>У вас</h3><p class="muted">35 минут или бесплатно</p><i class="pr"></i></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>Пицца Пронто © 2026 · демо</span><span>Работаем 10:00–03:00</span><span>8 800 000-00-00</span></div></footer>
+
+<div class="bar" id="bar"><span><b id="bn">0</b> товаров · <b id="bs">0 ₽</b></span><a href="#" class="btn">Оформить</a></div>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+// builder
+const base=[449,549,649],widths=['min(300px,58vw)','min(340px,65vw)','min(380px,72vw)'],pz=document.getElementById('pz');let size=1;
+function seg(id,cb){const s=document.getElementById(id),th=s.querySelector('.thumb');s.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{th.style.transform=`translateX(${i*100}%)`;cb&&cb(i)})}
+seg('size',i=>{size=i;pz.style.width=widths[i];upd()});seg('dough');
+document.querySelector('#size .thumb').style.transform='translateX(100%)';
+const pr=document.getElementById('pr'),bb=document.querySelector('#build .add-cart');
+function upd(){let p=base[size];document.querySelectorAll('.adds input:checked').forEach(c=>p+=+c.dataset.p);pr.textContent=p+' ₽';bb.dataset.p=p}
+document.querySelectorAll('.adds input').forEach(c=>c.onchange=upd);upd();
+// filter
+document.querySelectorAll('.cats button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.cats button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+document.querySelectorAll('.it').forEach(it=>it.classList.toggle('hide',b.dataset.c!=='all'&&it.dataset.c!==b.dataset.c))});
+// cart
+let n=0,sum=0;const bar=document.getElementById('bar');
+document.querySelectorAll('.add-cart').forEach(b=>b.onclick=()=>{n++;sum+=+b.dataset.p;document.getElementById('bn').textContent=n;document.getElementById('bs').textContent=sum+' ₽';bar.classList.add('show')});
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('go')}),{threshold:.4}).observe(document.getElementById('trk'));
+</script>
+</body>
+</html>

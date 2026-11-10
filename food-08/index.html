@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Колосок — пекарня</title>
+<meta name="description" content="Пекарня «Колосок»: хлеб на закваске, круассаны и пироги. Свежая выпечка каждые два часа.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&family=Bad+Script&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF6EC;--peach:#FFE1C8;--crust:#C9772E;--crust-d:#9B5418;--ink:#3D2614;--muted:#8A6A52;--rose:#F6B8A5;--r:26px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Nunito",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-family:"Nunito",system-ui,sans-serif;font-weight:900;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(28px,4.4vw,46px)}
+.script{font-family:"Bad Script",cursive;color:var(--crust);font-size:24px}
+section{padding:72px 0}
+@media(min-width:900px){section{padding:100px 0}}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 28px;border-radius:18px;background:var(--crust);color:#fff;font:inherit;font-weight:800;border:0;cursor:pointer;box-shadow:0 6px 0 var(--crust-d);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--crust-d)}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--crust-d)}
+.btn.w{background:#fff;color:var(--ink);box-shadow:0 6px 0 #EBC9AA}
+header{position:sticky;top:0;z-index:20;background:var(--bg)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Nunito";font-weight:900;font-size:24px}
+.logo span{font-size:30px;display:inline-block;animation:sway 3s ease-in-out infinite;transform-origin:bottom center}
+@keyframes sway{50%{transform:rotate(10deg)}}
+.links{display:flex;gap:28px;font-weight:600}
+.links a:hover{color:var(--crust)}
+.burger{display:none;width:46px;height:46px;border-radius:14px;border:0;background:var(--peach);cursor:pointer}
+.burger span{display:block;width:20px;height:2.5px;border-radius:2px;background:var(--ink);margin:4px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:fixed;left:0;right:0;top:76px;flex-direction:column;gap:0;background:var(--bg);padding:0 16px;max-height:0;overflow:hidden;transition:max-height .4s ease;box-shadow:0 20px 30px -24px rgba(61,38,20,.4)}
+  .links a{padding:14px 0;font-size:18px;border-top:1px dashed #EBC9AA}
+  .nav-open .links{max-height:300px}
+  .nav-open .burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+}
+.hero{background:var(--peach);padding:48px 0 0;position:relative}
+.hero .wrap{display:grid;gap:32px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr 1fr}}
+.hero h1{font-size:clamp(36px,6.4vw,70px)}
+.hero p{font-size:19px;max-width:42ch;margin:20px 0 28px}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.timer{display:inline-flex;align-items:center;gap:12px;margin-top:30px;background:#fff;padding:12px 18px;border-radius:18px;font-weight:700}
+.timer .dot{width:10px;height:10px;border-radius:50%;background:#3BB273;box-shadow:0 0 0 0 rgba(59,178,115,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(59,178,115,0)}100%{box-shadow:0 0 0 0 rgba(59,178,115,0)}}
+.timer b{color:var(--crust);font-variant-numeric:tabular-nums}
+.oven{position:relative;display:grid;place-items:center;padding-bottom:40px}
+.oven .big{width:min(400px,78vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 60%,#FFC48A,#F49D52 60%,#E07B2E);display:grid;place-items:center;font-size:min(180px,34vw);box-shadow:0 30px 60px -30px rgba(155,84,24,.7)}
+.oven .big span{animation:rise 4s ease-in-out infinite}
+@keyframes rise{50%{transform:translateY(-10px) scale(1.04)}}
+.chip{position:absolute;background:#fff;border-radius:18px;padding:10px 14px;font-weight:800;box-shadow:0 14px 30px -16px rgba(61,38,20,.4);display:flex;align-items:center;gap:8px;animation:fl 5s ease-in-out infinite;font-size:14px}
+.chip.a{top:10%;left:0}.chip.b{bottom:22%;right:0;animation-delay:-2.5s}
+@keyframes fl{50%{transform:translateY(-10px)}}
+.wave{display:block;width:100%;height:60px;margin-top:-1px}
+/* products */
+.prod{display:grid;gap:16px;margin-top:36px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.prod{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.pc{background:#fff;border-radius:var(--r);padding:16px;text-align:center;transition:transform .3s,box-shadow .3s}
+.pc:hover{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 20px 30px -20px rgba(61,38,20,.4)}
+.pc .ic{aspect-ratio:1;border-radius:20px;background:var(--peach);display:grid;place-items:center;font-size:clamp(48px,10vw,72px);margin-bottom:12px}
+.pc:nth-child(even) .ic{background:#FCE3DB}
+.pc h3{font-size:16px}
+.pc small{color:var(--muted);display:block}
+.pc b{display:inline-block;margin-top:8px;background:var(--bg);padding:4px 12px;border-radius:999px;color:var(--crust-d)}
+/* schedule */
+.sch{display:grid;gap:12px;margin-top:36px}
+@media(min-width:700px){.sch{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.slot{background:var(--peach);border-radius:var(--r);padding:24px;position:relative;overflow:hidden}
+.slot b{font-weight:900;font-size:34px;display:block}
+.slot.now{background:var(--crust);color:#fff}
+.slot.now::after{content:"сейчас в печи";position:absolute;top:16px;right:16px;font-size:12px;font-weight:800;background:#fff;color:var(--crust);padding:4px 10px;border-radius:999px}
+/* story */
+.story{display:grid;gap:32px;align-items:center}
+@media(min-width:900px){.story{grid-template-columns:1fr 1fr}}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.photos div{border-radius:var(--r);aspect-ratio:1;display:grid;place-items:center;font-size:64px;background:#fff}
+.photos div:first-child{grid-row:span 2;aspect-ratio:auto;background:var(--rose)}
+ul.ticks{list-style:none;margin-top:20px;display:grid;gap:10px}
+ul.ticks li{display:flex;gap:10px;align-items:center;font-weight:600}
+ul.ticks li::before{content:"✓";width:28px;height:28px;flex:none;border-radius:50%;background:var(--peach);color:var(--crust);display:grid;place-items:center;font-weight:800}
+/* order */
+.order{background:var(--ink);color:var(--bg);border-radius:32px;padding:40px 24px;display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.order{grid-template-columns:1fr 1fr;padding:56px}}
+.order .muted{color:#D9BFA8}
+form{display:grid;gap:12px}
+input{height:54px;border-radius:16px;border:0;padding:0 18px;font:inherit;width:100%}
+.fields{display:contents}.ok{display:none;background:var(--crust);border-radius:16px;padding:18px;font-weight:800}
+.sent .ok{display:block}.sent .fields{display:none}
+footer{padding:40px 0;text-align:center;color:var(--muted)}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.3,1.3,.5,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><span>🌾</span>Колосок</a>
+  <nav class="links"><a href="#bake">Выпечка</a><a href="#time">Расписание</a><a href="#story">О нас</a><a href="#order">Заказ</a></nav>
+  <a href="#order" class="btn">Заказать торт</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="rv">
+    <span class="script">Тёплое с самого утра</span>
+    <h1>Хлеб, который пахнет детством</h1>
+    <p class="muted">Печём на живой закваске без улучшителей. Новая партия круассанов и пирожков выходит из печи каждые два часа.</p>
+    <div class="actions"><a href="#bake" class="btn">Что сегодня в печи</a><a href="#order" class="btn w">Предзаказ</a></div>
+    <div class="timer"><span class="dot"></span>Следующая партия через <b id="tm">--:--</b></div>
+  </div>
+  <div class="oven rv"><div class="big"><span>🥐</span></div><div class="chip a">🍞 Хлеб на закваске</div><div class="chip b">🔥 Из печи 08:00</div></div>
+</div>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30c120 20 240 30 360 20S600 0 720 10s240 40 360 40 240-20 360-30v40H0z" fill="#FFF6EC"/></svg>
+</section>
+
+<section id="bake" style="padding-top:40px"><div class="wrap">
+  <span class="script rv">Наша витрина</span>
+  <h2 class="rv">Сегодня в печи</h2>
+  <div class="prod">
+    <div class="pc rv"><div class="ic">🥐</div><h3>Круассан</h3><small>французское масло</small><b>120 ₽</b></div>
+    <div class="pc rv"><div class="ic">🍞</div><h3>Ржаной на закваске</h3><small>с тмином, 500 г</small><b>190 ₽</b></div>
+    <div class="pc rv"><div class="ic">🥧</div><h3>Пирог с вишней</h3><small>песочное тесто</small><b>140 ₽</b></div>
+    <div class="pc rv"><div class="ic">🥨</div><h3>Брецель</h3><small>с крупной солью</small><b>90 ₽</b></div>
+    <div class="pc rv"><div class="ic">🧁</div><h3>Маффин черничный</h3><small>с крамблом</small><b>110 ₽</b></div>
+    <div class="pc rv"><div class="ic">🥖</div><h3>Багет</h3><small>хрустящий</small><b>130 ₽</b></div>
+    <div class="pc rv"><div class="ic">🍩</div><h3>Пончик</h3><small>с малиной</small><b>100 ₽</b></div>
+    <div class="pc rv"><div class="ic">🎂</div><h3>Медовик</h3><small>кусочек</small><b>220 ₽</b></div>
+  </div>
+</div></section>
+
+<section id="time" style="padding-top:0"><div class="wrap">
+  <h2 class="rv">Когда всё самое горячее</h2>
+  <div class="sch" id="sch">
+    <div class="slot rv" data-h="8"><b>08:00</b>Хлеб и круассаны</div>
+    <div class="slot rv" data-h="10"><b>10:00</b>Пирожки и булочки</div>
+    <div class="slot rv" data-h="12"><b>12:00</b>Пироги и киши</div>
+    <div class="slot rv" data-h="16"><b>16:00</b>Вторая партия хлеба</div>
+  </div>
+</div></section>
+
+<section id="story" style="background:#fff"><div class="wrap story">
+  <div class="photos rv"><div>👩‍🍳</div><div>🌾</div><div>🫓</div></div>
+  <div class="rv">
+    <span class="script">Наша история</span>
+    <h2>Маленькая семейная пекарня</h2>
+    <p class="muted" style="margin-top:16px">Начинали с одной печи и трёх видов хлеба. Сегодня у нас 40 позиций, но правила прежние:</p>
+    <ul class="ticks"><li>Закваске нашей пекарни 9 лет</li><li>Мука с мельниц Алтая</li><li>Ничего не продаём на следующий день</li><li>Торты на заказ за 24 часа</li></ul>
+  </div>
+</div></section>
+
+<section id="order"><div class="wrap"><div class="order rv">
+  <div><h2>Торт к празднику?</h2><p class="muted" style="margin-top:12px">Оставьте номер — кондитер поможет выбрать начинку и оформление. Готовим за 24 часа.</p></div>
+  <form><div class="fields"><input required placeholder="Имя"><input required type="tel" placeholder="Телефон"><button class="btn">Жду звонка</button></div><div class="ok">Спасибо! Кондитер скоро позвонит 🎂</div></form>
+</div></div></section>
+
+<footer>Пекарня «Колосок» · ул. Хлебная, 5 · каждый день 07:00–21:00 · демо-сайт</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+const tm=document.getElementById('tm');
+function tick(){const d=new Date(),m=119-((d.getHours()*60+d.getMinutes())%120),s=59-d.getSeconds();tm.textContent=(m>=60?Math.floor(m/60)+':':'')+String(m%60).padStart(2,'0')+':'+String(s).padStart(2,'0')}
+tick();setInterval(tick,1000);
+const hr=new Date().getHours();let last=null;document.querySelectorAll('.slot').forEach(s=>{if(hr>=+s.dataset.h)last=s});(last||document.querySelector('.slot')).classList.add('now');
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>

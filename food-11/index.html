@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пломбир — джелатерия и десерты</title>
+<meta name="description" content="Пломбир — джелатерия: мороженое из фермерского молока, сорбеты, вафли и десерты. 24 вкуса каждый день.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF5F8;--ink:#3A2342;--muted:#8A6E91;--pink:#FF8FB8;--mint:#9EE6CF;--lilac:#C9B6FF;--lemon:#FFE58A;--acc:#F0679B;--r:32px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Nunito",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;transition:background .6s}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-weight:900;line-height:1.08;letter-spacing:-.02em}
+h2{font-size:clamp(30px,4.6vw,52px)}
+.sc{font-family:"Pacifico",cursive;font-weight:400;color:var(--acc);letter-spacing:0;transition:color .6s}
+section{padding:72px 0}
+@media(min-width:900px){section{padding:110px 0}}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 30px;border-radius:999px;background:var(--ink);color:#fff;font:inherit;font-weight:800;border:0;cursor:pointer;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.btn:hover{transform:scale(1.06) rotate(-2deg)}
+.btn.p{background:#fff;color:var(--ink);box-shadow:0 10px 30px -14px rgba(58,35,66,.4)}
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blobs i{position:absolute;width:44vmax;height:44vmax;border-radius:50%;filter:blur(70px);opacity:.45;animation:drift 18s ease-in-out infinite alternate}
+.blobs i:nth-child(1){background:var(--pink);top:-20vmax;left:-10vmax}
+.blobs i:nth-child(2){background:var(--mint);bottom:-24vmax;right:-14vmax;animation-delay:-6s}
+.blobs i:nth-child(3){background:var(--lilac);top:30%;left:40%;width:30vmax;height:30vmax;animation-delay:-12s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.1)}}
+header{position:sticky;top:0;z-index:20;padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 10px 0 22px;border-radius:999px;background:rgba(255,255,255,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -20px rgba(58,35,66,.5)}
+.logo{font-family:"Pacifico";font-size:26px;color:var(--ink)}
+.links{display:flex;gap:26px;font-weight:800}
+.links a:hover{color:var(--acc)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:#fff;margin:4px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:absolute;left:0;right:0;top:72px;flex-direction:column;gap:0;background:#fff;border-radius:28px;padding:8px 20px;box-shadow:0 20px 40px -20px rgba(58,35,66,.5);opacity:0;transform:scale(.95) translateY(-8px);pointer-events:none;transition:.3s cubic-bezier(.3,1.4,.5,1)}
+  .links a{padding:14px 0;font-size:18px}
+  .nav-open .links{opacity:1;transform:none;pointer-events:auto}
+  .nav-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+}
+.hero{padding:40px 0 60px}
+.hero .wrap{display:grid;gap:36px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr 1fr}}
+.hero h1{font-size:clamp(42px,7.4vw,86px)}
+.hero p{font-size:19px;max-width:42ch;margin:20px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+/* cone */
+.cone-box{display:grid;place-items:center;gap:20px}
+.cone{position:relative;width:min(260px,58vw);aspect-ratio:3/5;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px) rotate(2deg)}}
+.cone .waf{position:absolute;bottom:0;left:15%;width:70%;height:58%;clip-path:polygon(0 0,100% 0,50% 100%);background:repeating-linear-gradient(45deg,#E9A85B 0 10px,#D88E3E 10px 12px),#E9A85B}
+.scoop{position:absolute;left:50%;width:76%;aspect-ratio:1;border-radius:50%;transform:translateX(-50%);transition:background .6s,transform .5s cubic-bezier(.3,1.6,.5,1);box-shadow:inset -14px -14px 0 rgba(0,0,0,.06)}
+.scoop.s1{bottom:34%;background:var(--pink)}
+.scoop.s2{bottom:56%;width:66%;background:var(--mint)}
+.scoop.s3{bottom:74%;width:54%;background:var(--lemon)}
+.scoop::after{content:"";position:absolute;top:18%;left:22%;width:18%;height:12%;border-radius:50%;background:rgba(255,255,255,.6);transform:rotate(-30deg)}
+.cherry{position:absolute;left:50%;bottom:94%;width:14%;aspect-ratio:1;border-radius:50%;background:#E8344E;transform:translateX(-50%)}
+.cherry::before{content:"";position:absolute;bottom:80%;left:50%;width:3px;height:70%;background:#5B8C3A;border-radius:3px;transform:rotate(20deg);transform-origin:bottom}
+.cone.pop .scoop{transform:translateX(-50%) scale(1.08)}
+.flv{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.flv button{width:46px;height:46px;border-radius:50%;border:4px solid #fff;cursor:pointer;box-shadow:0 6px 16px -8px rgba(58,35,66,.5);transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.flv button:hover,.flv button.on{transform:scale(1.18)}
+/* flavours grid */
+.grid{display:grid;gap:14px;margin-top:36px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.fc{background:rgba(255,255,255,.75);border-radius:var(--r);padding:20px;text-align:center;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.fc:hover{transform:translateY(-8px) rotate(-2deg)}
+.fc .ball{width:70%;aspect-ratio:1;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;font-size:clamp(36px,8vw,52px);box-shadow:inset -10px -10px 0 rgba(0,0,0,.06)}
+.fc h3{font-size:18px}
+.fc small{color:var(--muted)}
+.tag{display:inline-block;margin-top:8px;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--ink);color:#fff}
+/* desserts */
+.des{display:grid;gap:16px;margin-top:36px}
+@media(min-width:800px){.des{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.dc{border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:8px;min-height:240px;transition:transform .3s}
+.dc:hover{transform:scale(1.02)}
+.dc .e{font-size:56px;line-height:1}
+.dc h3{font-size:24px;margin-top:auto}
+.dc b{font-size:22px}
+/* party */
+.party{background:var(--ink);color:#fff;border-radius:40px;padding:40px 24px;display:grid;gap:24px;align-items:center;overflow:hidden;position:relative}
+@media(min-width:900px){.party{grid-template-columns:1.2fr 1fr;padding:60px}}
+.party .muted{color:#D6C4DC}
+.sprinkles{position:absolute;inset:0;pointer-events:none;background:
+radial-gradient(circle,var(--pink) 3px,transparent 3.5px) 0 0/90px 70px,
+radial-gradient(circle,var(--mint) 3px,transparent 3.5px) 40px 30px/110px 80px,
+radial-gradient(circle,var(--lemon) 3px,transparent 3.5px) 70px 10px/130px 90px;opacity:.5;animation:spr 20s linear infinite}
+@keyframes spr{to{background-position:90px 70px,150px 110px,200px 100px}}
+.party>*:not(.sprinkles){position:relative}
+form{display:grid;gap:12px}
+input{height:56px;border-radius:999px;border:0;padding:0 22px;font:inherit;width:100%}
+form .btn{background:var(--pink);color:var(--ink)}
+.fields{display:contents}.ok{display:none;background:rgba(255,255,255,.12);border-radius:24px;padding:18px;font-weight:800}
+.sent .ok{display:block}.sent .fields{display:none}
+footer{padding:40px 0;text-align:center;color:var(--muted);font-weight:600}
+.js .rv{opacity:0;transform:translateY(26px) scale(.96);transition:opacity .7s ease,transform .7s cubic-bezier(.3,1.4,.5,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blobs" aria-hidden="true"><i></i><i></i><i></i></div>
+<header><div class="wrap" style="position:relative"><div class="nav">
+  <a href="#" class="logo">Пломбир</a>
+  <nav class="links"><a href="#flavors">Вкусы</a><a href="#desserts">Десерты</a><a href="#party">Праздник</a></nav>
+  <a href="#flavors" class="btn">Все вкусы</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="rv">
+    <h1>Мороженое,<br>как в <span class="sc">детстве</span></h1>
+    <p class="muted">Готовим каждое утро из фермерского молока и настоящих ягод. 24 вкуса, сорбеты без сахара и вафельные рожки прямо из вафельницы.</p>
+    <div class="actions"><a href="#flavors" class="btn">Выбрать вкус</a><a href="#party" class="btn p">Детский праздник</a></div>
+  </div>
+  <div class="cone-box rv">
+    <div class="cone" id="cone"><div class="waf"></div><div class="scoop s1"></div><div class="scoop s2"></div><div class="scoop s3"></div><div class="cherry"></div></div>
+    <div class="flv" id="flv" aria-label="Выберите вкус">
+      <button class="on" style="background:#FF8FB8" data-c="#FF8FB8,#9EE6CF,#FFE58A" data-bg="#FFF5F8" data-a="#F0679B" aria-label="Клубника"></button>
+      <button style="background:#7B4A2E" data-c="#7B4A2E,#C69C6D,#F4E3C6" data-bg="#FBF3EC" data-a="#7B4A2E" aria-label="Шоколад"></button>
+      <button style="background:#9EE6CF" data-c="#9EE6CF,#C9B6FF,#FFFFFF" data-bg="#F1FBF7" data-a="#1FA67E" aria-label="Мята"></button>
+      <button style="background:#C9B6FF" data-c="#C9B6FF,#FF8FB8,#FFE58A" data-bg="#F6F2FF" data-a="#7B5CE0" aria-label="Черника"></button>
+      <button style="background:#FFE58A" data-c="#FFE58A,#FFB66B,#FFFFFF" data-bg="#FFFBEA" data-a="#E08A00" aria-label="Манго"></button>
+    </div>
+    <small class="muted">↑ нажмите на вкус</small>
+  </div>
+</div></section>
+
+<section id="flavors"><div class="wrap">
+  <h2 class="rv">Вкусы <span class="sc">сегодня</span></h2>
+  <div class="grid">
+    <div class="fc rv"><div class="ball" style="background:#FFD6E6">🍓</div><h3>Клубника со сливками</h3><small>шарик 150 ₽</small><br><span class="tag">хит</span></div>
+    <div class="fc rv"><div class="ball" style="background:#E9D3C2">🍫</div><h3>Бельгийский шоколад</h3><small>шарик 160 ₽</small></div>
+    <div class="fc rv"><div class="ball" style="background:#D5F5EA">🌿</div><h3>Мята с крошкой</h3><small>шарик 150 ₽</small></div>
+    <div class="fc rv"><div class="ball" style="background:#FFF1BF">🥭</div><h3>Сорбет манго</h3><small>шарик 140 ₽</small><br><span class="tag">без сахара</span></div>
+    <div class="fc rv"><div class="ball" style="background:#E7DEFF">🫐</div><h3>Черника</h3><small>шарик 150 ₽</small></div>
+    <div class="fc rv"><div class="ball" style="background:#F6E6D2">🥜</div><h3>Солёная фисташка</h3><small>шарик 190 ₽</small><br><span class="tag">new</span></div>
+    <div class="fc rv"><div class="ball" style="background:#FFF6EC">🍦</div><h3>Пломбир 1961</h3><small>шарик 130 ₽</small></div>
+    <div class="fc rv"><div class="ball" style="background:#FFE1D6">🍑</div><h3>Персик-маракуйя</h3><small>шарик 160 ₽</small></div>
+  </div>
+</div></section>
+
+<section id="desserts" style="padding-top:0"><div class="wrap">
+  <h2 class="rv">И не только <span class="sc">мороженое</span></h2>
+  <div class="des">
+    <div class="dc rv" style="background:var(--pink)"><span class="e">🧇</span><h3>Бельгийская вафля</h3><p>с шариком и ягодами</p><b>320 ₽</b></div>
+    <div class="dc rv" style="background:var(--mint)"><span class="e">🥤</span><h3>Милкшейк</h3><p>из любого вкуса</p><b>280 ₽</b></div>
+    <div class="dc rv" style="background:var(--lilac)"><span class="e">🍨</span><h3>Сандей</h3><p>3 шарика, соус, топпинг</p><b>390 ₽</b></div>
+  </div>
+</div></section>
+
+<section id="party" style="padding-top:0"><div class="wrap"><div class="party rv">
+  <div class="sprinkles"></div>
+  <div><h2>Праздник с <span class="sc" style="color:var(--pink)">мороженым</span></h2><p class="muted" style="margin-top:12px">Мастер-класс «Сделай своё мороженое» для детей 5–12 лет, торт-мороженое и украшение зала. Перезвоним и всё расскажем.</p></div>
+  <form><div class="fields"><input required placeholder="Имя"><input required type="tel" placeholder="Телефон"><button class="btn">Хочу праздник 🎈</button></div><div class="ok">Ура! Скоро позвоним 🍦</div></form>
+</div></div></section>
+
+<footer>Пломбир · Набережная, 3 · 10:00–22:00 · +7 (900) 000-00-00 · демо-сайт</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+const cone=document.getElementById('cone'),sc=cone.querySelectorAll('.scoop');
+document.querySelectorAll('#flv button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#flv button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+const c=b.dataset.c.split(',');sc.forEach((s,i)=>s.style.background=c[i]);document.body.style.background=b.dataset.bg;document.documentElement.style.setProperty('--acc',b.dataset.a);
+cone.classList.add('pop');setTimeout(()=>cone.classList.remove('pop'),300)});
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>

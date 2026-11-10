@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Чайхана «Шафран» — восточная кухня</title>
+<meta name="description" content="Чайхана «Шафран»: плов из казана, самса из тандыра, лагман и чай с восточными сладостями. Топчаны и кальян.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Arsenal:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F3B3A;--bg2:#0B2E2D;--cream:#F7EBD3;--ink:#F7EBD3;--muted:#B8C9C2;--gold:#E0B04A;--terra:#C2552F;--paper:#FBF4E6;--dark:#1E2A28;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:84px}
+body{font-family:"Arsenal",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;font-size:17px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+h1,h2,h3{font-family:"Prata",Georgia,serif;font-weight:400;line-height:1.12}
+h2{font-size:clamp(30px,4.6vw,54px)}
+section{padding:80px 0}
+@media(min-width:900px){section{padding:120px 0}}
+.muted{color:var(--muted)}
+.orn{display:flex;align-items:center;gap:12px;color:var(--gold);margin-bottom:16px;font-size:14px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.orn::before,.orn::after{content:"";width:28px;height:10px;background:radial-gradient(circle,var(--gold) 2px,transparent 2.5px) 0 50%/10px 10px repeat-x}
+.center{text-align:center}.center .orn{justify-content:center}
+.pattern{background-color:var(--bg2);background-image:
+radial-gradient(circle at 50% 50%,transparent 0 30%,rgba(224,176,74,.16) 31% 33%,transparent 34%),
+conic-gradient(from 45deg,rgba(224,176,74,.10) 0 25%,transparent 0 50%,rgba(224,176,74,.10) 0 75%,transparent 0);background-size:56px 56px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:54px;padding:0 28px;border-radius:999px;background:var(--gold);color:var(--dark);font:inherit;font-weight:700;border:0;cursor:pointer;transition:transform .2s,box-shadow .3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--gold)}
+.btn.o{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1.5px rgba(247,235,211,.5)}
+header{position:sticky;top:0;z-index:20;background:rgba(15,59,58,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(224,176,74,.2)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;position:relative}
+.logo{font-family:"Prata";font-size:24px;display:flex;align-items:center;gap:10px}
+.logo svg{width:32px;height:32px}
+.links{display:flex;gap:30px;font-weight:700}
+.links a{opacity:.85}.links a:hover{color:var(--gold);opacity:1}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--cream);margin:6px auto;transition:.3s}
+@media(max-width:860px){
+  .burger{display:block}.nav>.btn{display:none}
+  .links{position:absolute;left:0;right:0;top:74px;flex-direction:column;gap:0;background:var(--bg);padding:0 16px;max-height:0;overflow:hidden;transition:max-height .4s}
+  .links a{padding:16px 0;border-top:1px solid rgba(224,176,74,.2);font-size:19px}
+  .nav-open .links{max-height:340px}
+  .nav-open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav-open .burger span:nth-child(2){opacity:0}
+  .nav-open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:56px 0 90px}
+.lanterns{position:absolute;top:0;right:4%;display:flex;gap:28px;pointer-events:none}
+.lan{transform-origin:top center;animation:sway 4s ease-in-out infinite}
+.lan:nth-child(2){animation-delay:-1.3s;margin-top:-30px}.lan:nth-child(3){animation-delay:-2.6s}
+@keyframes sway{50%{transform:rotate(6deg)}0%,100%{transform:rotate(-6deg)}}
+.lan i{display:block;width:1px;height:70px;background:var(--gold);margin:0 auto}
+.lan b{display:block;width:36px;height:52px;border-radius:40% 40% 46% 46%;background:radial-gradient(circle at 50% 45%,#FFE6A3,var(--gold) 50%,var(--terra));box-shadow:0 0 30px 6px rgba(224,176,74,.45)}
+@media(max-width:700px){.lanterns{right:2%;gap:16px;transform:scale(.7);transform-origin:top right;opacity:.8}}
+.hero .wrap{display:grid;gap:40px;align-items:center;position:relative}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.1fr 1fr}}
+.hero h1{font-size:clamp(40px,7vw,82px)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:19px;max-width:44ch;margin:22px 0 32px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.archw{position:relative;max-width:420px;width:100%;margin:0 auto}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 0 0;border:2px solid var(--gold);padding:14px}
+.arch div{height:100%;border-radius:999px 999px 0 0;background:radial-gradient(circle at 50% 65%,#E9A04B,var(--terra) 55%,#7A2E17);display:grid;place-items:center;font-size:clamp(100px,22vw,170px);overflow:hidden}
+.arch div span{animation:steam 5s ease-in-out infinite}
+@keyframes steam{50%{transform:translateY(-10px) scale(1.04)}}
+.seal{position:absolute;left:-8px;bottom:30px;width:110px;height:110px;border-radius:50%;background:var(--cream);color:var(--dark);display:grid;place-items:center;text-align:center;font-family:"Prata";font-size:15px;line-height:1.2;box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--gold)}
+@media(max-width:500px){.seal{left:0;width:92px;height:92px;font-size:13px}}
+/* features */
+.feat{display:grid;gap:16px;margin-top:40px}
+@media(min-width:800px){.feat{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.fbox{border:1px solid rgba(224,176,74,.3);border-radius:120px 120px var(--r) var(--r);padding:44px 26px 28px;text-align:center;transition:border-color .3s,transform .3s}
+.fbox:hover{border-color:var(--gold);transform:translateY(-6px)}
+.fbox .e{font-size:48px}
+.fbox h3{font-size:24px;margin:12px 0 8px;color:var(--gold)}
+/* menu accordion */
+.light{background:var(--paper);color:var(--dark)}
+.light .muted{color:#6B6458}
+.acc{margin-top:40px;display:grid;gap:12px}
+details{background:#fff;border-radius:var(--r);border:1px solid #EADFC9;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:"Prata";font-size:clamp(20px,2.6vw,26px)}
+summary::-webkit-details-marker{display:none}
+summary .pl{width:36px;height:36px;border-radius:50%;background:var(--bg);color:var(--gold);display:grid;place-items:center;flex:none;font-family:"Arsenal";font-size:22px;transition:transform .35s}
+details[open] summary .pl{transform:rotate(45deg);background:var(--terra);color:#fff}
+.dl{padding:0 24px 12px}
+details[open] .dl{animation:open .45s ease}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}}
+.row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px dashed #E3D6BC}
+.row small{display:block;color:#6B6458}
+.row b{font-family:"Prata";font-weight:400;white-space:nowrap;color:var(--terra)}
+/* tea */
+.tea{display:grid;gap:32px;align-items:center}
+@media(min-width:900px){.tea{grid-template-columns:1fr 1fr}}
+.pot{position:relative;width:min(340px,70vw);aspect-ratio:1;margin:0 auto;display:grid;place-items:center;font-size:min(150px,30vw)}
+.pot::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(224,176,74,.5);animation:rot 30s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.teas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+.teas div{padding:16px;border-radius:var(--r);background:rgba(247,235,211,.06);border:1px solid rgba(224,176,74,.2)}
+.teas b{color:var(--gold);display:block;font-family:"Prata";font-weight:400}
+/* book */
+.book{background:var(--terra);border-radius:28px;padding:40px 24px;display:grid;gap:24px;align-items:center}
+@media(min-width:900px){.book{grid-template-columns:1fr 1fr;padding:56px}}
+form{display:grid;gap:12px}
+@media(min-width:560px){form{grid-template-columns:repeat(2,minmax(0,1fr))}.full{grid-column:1/-1}}
+input,select{height:54px;border-radius:14px;border:0;padding:0 16px;font:inherit;width:100%;background:var(--paper);color:var(--dark)}
+.fields{display:contents}.ok{display:none;background:var(--paper);color:var(--dark);border-radius:14px;padding:18px;font-weight:700}
+.sent .ok{display:block}.sent .fields{display:none}
+footer{padding:40px 0;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#" class="logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l4 8 8 2-6 6 2 9-8-4-8 4 2-9-6-6 8-2z" fill="none" stroke="#E0B04A" stroke-width="1.6"/><circle cx="16" cy="16" r="3" fill="#E0B04A"/></svg>Шафран</a>
+  <nav class="links"><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#tea">Чай</a><a href="#book">Бронь</a></nav>
+  <a href="#book" class="btn">Забронировать топчан</a>
+  <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</div></header>
+
+<section class="hero pattern">
+  <div class="lanterns" aria-hidden="true"><div class="lan"><i></i><b></b></div><div class="lan"><i></i><b></b></div><div class="lan"><i></i><b></b></div></div>
+  <div class="wrap">
+    <div class="rv">
+      <div class="orn">Восточная кухня</div>
+      <h1>Плов из казана<br>и <em>долгий</em> чай</h1>
+      <p class="muted">Уютные топчаны с подушками, тандыр во дворе и казан на 50 порций. Здесь не торопятся — здесь угощают.</p>
+      <div class="actions"><a href="#menu" class="btn">Меню</a><a href="#book" class="btn o">Забронировать</a></div>
+    </div>
+    <div class="archw rv"><div class="arch"><div><span>🍲</span></div></div><div class="seal">Плов<br>с 12:00</div></div>
+  </div>
+</section>
+
+<section id="about"><div class="wrap center">
+  <div class="orn rv">Традиции</div>
+  <h2 class="rv">Гостеприимство — наш главный рецепт</h2>
+  <div class="feat">
+    <div class="fbox rv"><div class="e">🔥</div><h3>Казан и тандыр</h3><p class="muted">Плов готовим на живом огне, самсу и лепёшки — в глиняном тандыре.</p></div>
+    <div class="fbox rv"><div class="e">🛋️</div><h3>Топчаны</h3><p class="muted">Шесть закрытых топчанов на 4–12 гостей с мягкими подушками.</p></div>
+    <div class="fbox rv"><div class="e">🫖</div><h3>Чайная церемония</h3><p class="muted">20 сортов чая, сухофрукты, орехи и сладости ручной работы.</p></div>
+  </div>
+</div></section>
+
+<section id="menu" class="light"><div class="wrap">
+  <div class="orn rv" style="color:var(--terra)">Меню</div>
+  <h2 class="rv">Что приготовить для вас?</h2>
+  <div class="acc rv">
+    <details open><summary>Плов и горячее<span class="pl">+</span></summary><div class="dl">
+      <div class="row"><div>Плов ферганский<small>баранина, жёлтая морковь, нут, айва</small></div><b>590 ₽</b></div>
+      <div class="row"><div>Лагман<small>тянутая вручную лапша, говядина, овощи</small></div><b>520 ₽</b></div>
+      <div class="row"><div>Манты · 5 шт<small>баранина, курдюк, сметана</small></div><b>480 ₽</b></div>
+    </div></details>
+    <details><summary>Из тандыра<span class="pl">+</span></summary><div class="dl">
+      <div class="row"><div>Самса с бараниной<small>слоёное тесто, кунжут</small></div><b>220 ₽</b></div>
+      <div class="row"><div>Лепёшка<small>с кунжутом и чернушкой</small></div><b>90 ₽</b></div>
+      <div class="row"><div>Тандыр-гош<small>баранина, томлённая 4 часа</small></div><b>890 ₽</b></div>
+    </div></details>
+    <details><summary>Шашлык<span class="pl">+</span></summary><div class="dl">
+      <div class="row"><div>Люля из баранины<small>лук, зелень, лаваш</small></div><b>460 ₽</b></div>
+      <div class="row"><div>Каре ягнёнка<small>маринад с зирой</small></div><b>1 150 ₽</b></div>
+    </div></details>
+    <details><summary>Сладости<span class="pl">+</span></summary><div class="dl">
+      <div class="row"><div>Пахлава<small>орехи, мёд</small></div><b>260 ₽</b></div>
+      <div class="row"><div>Чак-чак<small>с цветочным мёдом</small></div><b>240 ₽</b></div>
+    </div></details>
+  </div>
+</div></section>
+
+<section id="tea"><div class="wrap tea">
+  <div class="pot rv">🫖</div>
+  <div class="rv">
+    <div class="orn">Чайная карта</div>
+    <h2>Чай, который заваривают с любовью</h2>
+    <p class="muted" style="margin-top:12px">Подаём в пиалах, с колотым сахаром и сладостями. Чайник — 1 литр на компанию.</p>
+    <div class="teas"><div><b>Зелёный с жасмином</b>390 ₽</div><div><b>Чёрный с чабрецом</b>350 ₽</div><div><b>Шафрановый</b>520 ₽</div><div><b>Облепиховый</b>450 ₽</div></div>
+  </div>
+</div></section>
+
+<section id="book" style="padding-top:0"><div class="wrap"><div class="book rv">
+  <div><h2>Забронируйте топчан</h2><p style="opacity:.9;margin-top:12px">Ежедневно 11:00–23:00. Для компаний от 10 человек — плов в казане на заказ.</p></div>
+  <form><div class="fields"><input required placeholder="Имя"><input required type="tel" placeholder="Телефон"><input required type="date"><select><option>Топчан на 4</option><option>Топчан на 6–8</option><option>Топчан на 12</option></select><button class="btn full">Забронировать</button></div><div class="ok full">Рахмат! Мы скоро позвоним 🫖</div></form>
+</div></div></section>
+
+<footer><div class="wrap"><span>Чайхана «Шафран» © 2026 · демо</span><span>ул. Восточная, 9 · 11:00–23:00</span><span>+7 (900) 000-00-00</span></div></footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*100+'ms';io.observe(el)});
+document.querySelector('.burger').onclick=()=>document.body.classList.toggle('nav-open');
+document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.body.classList.remove('nav-open'));
+const ds=document.querySelectorAll('details');ds.forEach(d=>d.addEventListener('toggle',()=>{if(d.open)ds.forEach(o=>{if(o!==d)o.open=false})}));
+document.querySelector('form').onsubmit=e=>{e.preventDefault();e.target.classList.add('sent')};
+</script>
+</body>
+</html>
