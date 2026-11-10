@@ -7,13 +7,13 @@
 
 | Папка | Название | Стиль | Особенности |
 |---|---|---|---|
-| `sto-landing/` | ТОРК | Светлый bento, оранжевый + лайм | Онлайн-статус ремонта, калькулятор стоимости, запись со слотами времени |
+| `sto-landing-8/` | Люмен | Стекло и неон, ночной градиент | Плавающие пятна света, 3D-наклон карточек, подписка |
+| `sto-landing-13/` | ДИАГНОСТ | Терминал | Печатающаяся консоль, ASCII-прогресс |
 | `sto-landing-2/` | ГАРАЖ 21 | Тёмный «техно», графит + неоновый голубой | Анимированный тахометр, счётчики, пакеты ТО, таймлайн с заполнением |
+| `sto-landing/` | ТОРК | Светлый bento, оранжевый + лайм | Онлайн-статус ремонта, калькулятор стоимости, запись со слотами времени |
 | `sto-landing-4/` | МоторПро | Яркий bento, фиолетовый + жёлтый | Меняющееся слово в заголовке, квиз «цена за 3 шага», бегущие отзывы |
 | `sto-landing-5/` | Красная линия | Тёмный «гоночный», чёрный + красный + янтарный | Линии скорости, слайдер услуг, прайс с переключателем, сравнение «до/после» |
-| `sto-landing-8/` | Люмен | Стекло и неон, ночной градиент | Плавающие пятна света, 3D-наклон карточек, подписка |
 | `sto-landing-11/` | Престиж | Премиум-люкс, чёрный + золото | Переливающийся текст, прорисовка контура авто |
-| `sto-landing-13/` | ДИАГНОСТ | Терминал | Печатающаяся консоль, ASCII-прогресс |
 | `sto-landing-15/` | Цех №3 | Индустриальный чертёж | Прорисовка грузовика, калькулятор для автопарков |
 
 Корневой `index.html` — страница-витрина со ссылками на все сайты.
@@ -29,11 +29,11 @@ Settings → Pages → Source: **GitHub Actions**. Публикация запу
 Через 1–2 минуты сайты будут доступны:
 
 - https://spacerunman.github.io/cpace4games/ — витрина
-- https://spacerunman.github.io/cpace4games/sto-landing/
+- https://spacerunman.github.io/cpace4games/sto-landing-8/
+- https://spacerunman.github.io/cpace4games/sto-landing-13/
 - https://spacerunman.github.io/cpace4games/sto-landing-2/
+- https://spacerunman.github.io/cpace4games/sto-landing/
 - https://spacerunman.github.io/cpace4games/sto-landing-4/
 - https://spacerunman.github.io/cpace4games/sto-landing-5/
-- https://spacerunman.github.io/cpace4games/sto-landing-8/
 - https://spacerunman.github.io/cpace4games/sto-landing-11/
-- https://spacerunman.github.io/cpace4games/sto-landing-13/
 - https://spacerunman.github.io/cpace4games/sto-landing-15/
