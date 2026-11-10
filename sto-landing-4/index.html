@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МоторПро — автосервис</title>
+<meta name="description" content="МоторПро — автосервис нового формата: подбор ремонта за 3 шага, фиксированные цены, гарантия. Запись онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  ПРЕВЬЮ-ВЕРСИЯ лендинга автосервиса (вариант 4 — светлый bento, фиолетовый + жёлтый).
+  Для полной доработки: реальные контакты и цены, отправка квиза (#quiz) в CRM/Telegram,
+  фото мастерской, карта, политика конфиденциальности, SEO-разметка.
+-->
+<style>
+  :root{
+    --bg:#EEF1F6;
+    --card:#FFFFFF;
+    --ink:#0E1B3D;
+    --ink-2:#56607A;
+    --line:#DCE1EA;
+    --violet:#6D4AFF;
+    --violet-2:#8B71FF;
+    --yellow:#FFD23F;
+    --sky:#BDE6FF;
+    --radius:26px;
+    --font:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  button,input,select{font:inherit;color:inherit}
+  svg{display:block}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 16px}
+  @media (min-width:768px){.wrap{padding:0 28px}}
+  [id]{scroll-margin-top:84px}
+  h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1.05}
+  h2{font-size:clamp(30px,4.6vw,54px)}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:6px 14px 6px 6px;border-radius:999px;font-size:14px;font-weight:600}
+  .pill i{background:var(--violet);color:#fff;font-style:normal;font-size:12px;padding:3px 9px;border-radius:999px}
+  .muted{color:var(--ink-2)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:16px;border:0;cursor:pointer;font-weight:700;font-size:16px;white-space:nowrap;transition:transform .2s cubic-bezier(.3,1.6,.5,1), background .2s, box-shadow .2s}
+  .btn:active{transform:scale(.95)}
+  .btn-v{background:var(--violet);color:#fff;box-shadow:0 12px 24px -12px rgba(109,74,255,.8)}
+  @media (hover:hover){.btn-v:hover{background:var(--violet-2);transform:translateY(-2px)}}
+  .btn-w{background:var(--card);border:1px solid var(--line)}
+  @media (hover:hover){.btn-w:hover{transform:translateY(-2px)}}
+
+  /* header: floating island */
+  .top{position:sticky;top:12px;z-index:40;margin-top:12px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:8px 8px 8px 16px;box-shadow:0 10px 30px -20px rgba(14,27,61,.35)}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.03em}
+  .logo span{width:34px;height:34px;border-radius:11px;background:var(--violet);display:grid;place-items:center;color:var(--yellow);font-size:17px}
+  .links{display:none;gap:4px}
+  .links a{padding:10px 14px;border-radius:12px;font-weight:600;font-size:15px;color:var(--ink-2);transition:background .2s, color .2s}
+  .links a:hover{background:var(--bg);color:var(--ink)}
+  @media (min-width:960px){.links{display:flex}}
+  .bar .btn{height:44px;padding:0 18px;font-size:15px;border-radius:13px}
+
+  /* hero */
+  .hero{padding:40px 0 24px}
+  .hero-grid{display:grid;gap:14px}
+  @media (min-width:980px){.hero-grid{grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto}}
+  .h-main{background:var(--card);border-radius:var(--radius);padding:30px 22px;border:1px solid var(--line);position:relative;overflow:hidden}
+  @media (min-width:768px){.h-main{padding:48px}}
+  @media (min-width:980px){.h-main{grid-row:span 2}}
+  .h-main h1{font-size:clamp(36px,5.6vw,70px);margin:20px 0 18px}
+  .rot{display:inline-block;position:relative;color:var(--violet);height:1.18em;line-height:1.18;overflow:hidden;vertical-align:bottom}
+  .rot span{display:block;height:1.18em;animation:rot 8s infinite}
+  @keyframes rot{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-100%)}50%,70%{transform:translateY(-200%)}75%,95%{transform:translateY(-300%)}100%{transform:translateY(-400%)}}
+  .h-main p{font-size:clamp(16px,1.5vw,18px);max-width:48ch}
+  .h-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .blob{position:absolute;right:-90px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--yellow),#FFB800);opacity:.9;animation:breathe 6s ease-in-out infinite}
+  @keyframes breathe{50%{transform:scale(1.08) translate(-8px,-8px)}}
+  @media (max-width:767px){.blob{width:180px;height:180px;right:-70px;bottom:-70px;opacity:.5}}
+  .h-main > *:not(.blob){position:relative;z-index:1}
+
+  .h-violet{background:var(--violet);color:#fff;border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:200px;position:relative;overflow:hidden}
+  .h-violet b{font-size:clamp(46px,6vw,64px);line-height:1;letter-spacing:-.04em}
+  .h-violet p{color:#DCD3FF}
+  .rings{position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;border:2px solid rgba(255,255,255,.2);box-shadow:0 0 0 24px rgba(255,255,255,.05),0 0 0 48px rgba(255,255,255,.04)}
+  .h-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .mini{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:6px}
+  .mini b{font-size:30px;letter-spacing:-.03em}
+  .mini small{color:var(--ink-2);font-size:14px}
+  .mini.y{background:var(--yellow);border-color:var(--yellow)}
+  .mini.sky{background:var(--sky);border-color:var(--sky)}
+
+  section{padding:64px 0}
+  @media (min-width:768px){section{padding:96px 0}}
+  .sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:34px}
+  .sh h2{max-width:15ch;margin-top:14px}
+
+  /* services bento with hover gradient border */
+  .bento{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  @media (min-width:980px){.bento{grid-template-columns:repeat(6,1fr)}}
+  .s{grid-column:span 1;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px;position:relative;transition:transform .3s cubic-bezier(.3,1.4,.5,1), box-shadow .3s}
+  @media (min-width:980px){.s{grid-column:span 2;padding:24px}.s.w3{grid-column:span 3}}
+  .s.full{grid-column:span 2}
+  @media (min-width:980px){.s.full{grid-column:span 3}}
+  @media (hover:hover){.s:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 22px 40px -24px rgba(109,74,255,.55)}.s:hover .em{transform:scale(1.15) rotate(-8deg)}}
+  .em{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;background:var(--bg);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+  .s h3{font-size:clamp(17px,1.8vw,22px)}
+  .s p{color:var(--ink-2);font-size:14px}
+  .s .pr{margin-top:auto;font-weight:800;font-size:16px;padding-top:6px}
+  .s.v{background:var(--violet);color:#fff;border-color:var(--violet)}
+  .s.v p{color:#DCD3FF}.s.v .em{background:rgba(255,255,255,.14)}
+  .s.y{background:var(--yellow);border-color:var(--yellow)}
+  .s.y .em{background:rgba(255,255,255,.5)}
+
+  /* quiz */
+  .quiz{background:var(--ink);color:#fff;border-radius:32px;padding:28px 20px;display:grid;gap:28px}
+  @media (min-width:900px){.quiz{grid-template-columns:.9fr 1.1fr;padding:48px;gap:48px}}
+  .quiz h2{color:#fff}
+  .quiz .muted{color:#A8B1C7}
+  .steps{display:flex;gap:6px;margin-bottom:22px}
+  .steps i{flex:1;height:6px;border-radius:999px;background:#25325A;overflow:hidden;position:relative}
+  .steps i::after{content:"";position:absolute;inset:0;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .5s ease}
+  .steps i.on::after{transform:scaleX(1)}
+  .q-step{display:none}
+  .q-step.on{display:block;animation:slide .45s cubic-bezier(.2,.8,.2,1)}
+  @keyframes slide{from{opacity:0;transform:translateX(24px)}}
+  .q-step h3{font-size:22px;margin-bottom:16px}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .opt{background:#16244C;border:1.5px solid #25325A;border-radius:16px;padding:16px;text-align:left;cursor:pointer;font-weight:600;transition:border-color .2s, background .2s, transform .2s}
+  .opt span{display:block;font-size:22px;margin-bottom:6px}
+  @media (hover:hover){.opt:hover{border-color:var(--violet-2);transform:translateY(-2px)}}
+  .opt.sel{background:var(--violet);border-color:var(--violet)}
+  .q-in{display:grid;gap:12px}
+  .q-in input{height:54px;border-radius:14px;border:1.5px solid #25325A;background:#16244C;color:#fff;padding:0 16px;font-size:16px;width:100%}
+  .q-in input::placeholder{color:#7F8AA8}
+  .q-in input:focus{outline:none;border-color:var(--yellow)}
+  .q-nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+  .q-nav .btn{flex:1}
+  .btn-ghost-d{background:transparent;border:1.5px solid #25325A;color:#fff}
+  .btn-y{background:var(--yellow);color:var(--ink)}
+  .q-done{text-align:center;padding:30px 0}
+  .q-done b{display:block;font-size:28px;color:var(--yellow);margin-bottom:8px}
+  .perks{list-style:none;display:grid;gap:12px;margin-top:26px}
+  .perks li{display:flex;gap:12px;align-items:center;color:#DDE3F2}
+  .perks li::before{content:"✓";width:28px;height:28px;border-radius:50%;background:#16244C;color:var(--yellow);display:grid;place-items:center;font-weight:800;flex:none}
+
+  /* reviews marquee */
+  .rev-track{display:flex;gap:14px;width:max-content;animation:mq 50s linear infinite}
+  .rev-track:hover{animation-play-state:paused}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .rv-box{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .rc{width:320px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:12px}
+  .rc .st{color:#F5A400;letter-spacing:2px}
+  .rc footer{display:flex;align-items:center;gap:10px;margin-top:auto;font-size:14px}
+  .rc footer i{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-style:normal;font-weight:800;color:#fff}
+
+  /* faq + contacts */
+  .two{display:grid;gap:14px}
+  @media (min-width:900px){.two{grid-template-columns:1fr 1fr}}
+  .acc{background:var(--card);border:1px solid var(--line);border-radius:18px;margin-bottom:10px;overflow:hidden}
+  .acc button{width:100%;background:none;border:0;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700;font-size:17px;text-align:left;cursor:pointer}
+  .acc button i{width:30px;height:30px;border-radius:10px;background:var(--bg);display:grid;place-items:center;font-style:normal;transition:transform .3s, background .3s;flex:none}
+  .acc.open button i{transform:rotate(45deg);background:var(--yellow)}
+  .acc .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+  .acc.open .a{grid-template-rows:1fr}
+  .acc .a > div{overflow:hidden}
+  .acc .a p{padding:0 20px 18px;color:var(--ink-2)}
+  .ct{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:grid;gap:14px;align-content:start}
+  .ct-row{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:var(--bg)}
+  .ct-row span{font-size:22px}
+  .ct-row small{display:block;color:var(--ink-2);font-size:13px}
+
+  footer.ft{padding:30px 0 110px;color:var(--ink-2);font-size:14px}
+  @media (min-width:768px){footer.ft{padding-bottom:40px}}
+  .ft .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  .fab{position:fixed;left:16px;right:16px;bottom:14px;z-index:50;display:flex;gap:8px;transform:translateY(160%);transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
+  .fab.on{transform:none}
+  .fab .btn{flex:1;height:52px}
+  @media (min-width:768px){.fab{display:none}}
+
+  /* scroll reveal: pop-in */
+  .pop{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .55s ease, transform .55s cubic-bezier(.3,1.4,.5,1)}
+  .pop.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.pop{opacity:1;transform:none}html{scroll-behavior:auto}}
+  :focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <header class="bar">
+    <a href="#" class="logo"><span>М</span>МоторПро</a>
+    <nav class="links"><a href="#services">Услуги</a><a href="#quiz">Подбор ремонта</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a></nav>
+    <a href="#quiz" class="btn btn-v">Записаться</a>
+  </header>
+</div>
+
+<main>
+<section class="hero" style="padding-top:28px">
+  <div class="wrap hero-grid">
+    <div class="h-main pop">
+      <div class="blob" aria-hidden="true"></div>
+      <span class="pill"><i>новое</i>Подбор ремонта онлайн за 3 шага</span>
+      <h1>Чиним <span class="rot"><span>ходовую</span><span>двигатель</span><span>электрику</span><span>тормоза</span><span>ходовую</span></span><br>без лишних слов</h1>
+      <p class="muted">Ответьте на 3 вопроса — пришлём цену и свободное время. Приезжаете, отдаёте ключи, забираете готовую машину.</p>
+      <div class="h-cta">
+        <a href="#quiz" class="btn btn-v">Подобрать ремонт →</a>
+        <a href="tel:+70000000000" class="btn btn-w">+7 (000) 000-00-00</a>
+      </div>
+    </div>
+    <div class="h-violet pop">
+      <div class="rings" aria-hidden="true"></div>
+      <span style="font-weight:600;position:relative">Средний срок ремонта</span>
+      <div style="position:relative"><b>3,5 ч</b><p>большинство работ — в день обращения</p></div>
+    </div>
+    <div class="h-row">
+      <div class="mini y pop"><b>4,9★</b><small style="color:#4B3D00">700+ отзывов</small></div>
+      <div class="mini sky pop"><b>1 год</b><small style="color:#21486A">гарантия</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sh">
+      <div><span class="pill"><i>01</i>Услуги</span><h2>Ремонтируем всё, что ездит</h2></div>
+      <p class="muted" style="max-width:38ch">Цены указаны за работу для легковых автомобилей. Точную сумму назовём после осмотра.</p>
+    </div>
+    <div class="bento">
+      <div class="s v w3 full pop"><div class="em">🛠️</div><h3>Техническое обслуживание</h3><p>Масло, фильтры, свечи, жидкости и проверка 30 узлов. Сохраняем гарантию производителя.</p><div class="pr">от 2 700 ₽</div></div>
+      <div class="s y w3 full pop"><div class="em">💻</div><h3>Компьютерная диагностика</h3><p>Считываем ошибки, проверяем датчики и даём понятный отчёт.</p><div class="pr">от 900 ₽</div></div>
+      <div class="s pop"><div class="em">🚗</div><h3>Ходовая</h3><p>Подвеска, рычаги, амортизаторы</p><div class="pr">от 1 500 ₽</div></div>
+      <div class="s pop"><div class="em">🛑</div><h3>Тормоза</h3><p>Колодки, диски, суппорты</p><div class="pr">от 1 100 ₽</div></div>
+      <div class="s pop"><div class="em">⚙️</div><h3>Двигатель</h3><p>ГРМ, ремонт и замена узлов</p><div class="pr">от 4 000 ₽</div></div>
+      <div class="s pop"><div class="em">⚡</div><h3>Электрика</h3><p>Проводка, АКБ, генератор</p><div class="pr">от 1 000 ₽</div></div>
+      <div class="s pop"><div class="em">❄️</div><h3>Кондиционер</h3><p>Заправка и чистка системы</p><div class="pr">от 2 000 ₽</div></div>
+      <div class="s pop"><div class="em">🛞</div><h3>Шиномонтаж</h3><p>Смена сезона, балансировка</p><div class="pr">от 1 600 ₽</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz" style="padding-top:0">
+  <div class="wrap">
+    <div class="quiz pop">
+      <div>
+        <span class="pill" style="background:#16244C;border-color:#25325A;color:#fff"><i>02</i>Подбор ремонта</span>
+        <h2 style="margin-top:14px">Узнайте цену за 3 шага</h2>
+        <p class="muted" style="margin-top:14px;max-width:40ch">Ответьте на пару вопросов — мастер перезвонит с ценой и свободным временем.</p>
+        <ul class="perks"><li>Ответ в течение 15 минут</li><li>Фиксированная цена после осмотра</li><li>Скидка 10% при записи онлайн</li></ul>
+      </div>
+      <div>
+        <div class="steps" id="steps"><i class="on"></i><i></i><i></i></div>
+        <div class="q-step on" data-step="1">
+          <h3>Что беспокоит?</h3>
+          <div class="opts" data-name="problem">
+            <button class="opt" type="button"><span>🔧</span>Нужно ТО</button>
+            <button class="opt" type="button"><span>🔊</span>Стук или шум</button>
+            <button class="opt" type="button"><span>⚠️</span>Ошибка на панели</button>
+            <button class="opt" type="button"><span>🤔</span>Не знаю, нужна диагностика</button>
+          </div>
+        </div>
+        <div class="q-step" data-step="2">
+          <h3>Какой у вас автомобиль?</h3>
+          <div class="opts" data-name="car">
+            <button class="opt" type="button"><span>🚙</span>Седан / хэтчбек</button>
+            <button class="opt" type="button"><span>🚐</span>Кроссовер</button>
+            <button class="opt" type="button"><span>🛻</span>Внедорожник</button>
+            <button class="opt" type="button"><span>💎</span>Премиум</button>
+          </div>
+        </div>
+        <div class="q-step" data-step="3">
+          <h3>Куда прислать цену?</h3>
+          <div class="q-in">
+            <input id="qn" placeholder="Ваше имя" autocomplete="given-name">
+            <input id="qp" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+          </div>
+        </div>
+        <div class="q-done" id="qdone" hidden><b>Готово!</b><p class="muted" id="qtxt">Скоро перезвоним.</p></div>
+        <div class="q-nav" id="qnav">
+          <button class="btn btn-ghost-d" type="button" id="back" style="visibility:hidden">Назад</button>
+          <button class="btn btn-y" type="button" id="next">Далее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><div><span class="pill"><i>03</i>Отзывы</span><h2>Клиенты о нас</h2></div></div>
+  </div>
+  <div class="rv-box pop">
+    <div class="rev-track" id="revs">
+      <article class="rc"><span class="st">★★★★★</span><p>«Прошёл квиз на сайте, через 10 минут перезвонили и назвали точную цену. Так и вышло.»</p><footer><i style="background:#6D4AFF">К</i><div><b>Кирилл</b><br><span class="muted">Mazda 6</span></div></footer></article>
+      <article class="rc"><span class="st">★★★★★</span><p>«Быстро заменили колодки и диски, показали старые. Чисто, вежливо, без навязывания.»</p><footer><i style="background:#F5A400">А</i><div><b>Анна</b><br><span class="muted">Hyundai Solaris</span></div></footer></article>
+      <article class="rc"><span class="st">★★★★★</span><p>«Нашли проблему с электрикой, которую не могли найти два других сервиса.»</p><footer><i style="background:#0E1B3D">Р</i><div><b>Роман</b><br><span class="muted">Skoda Kodiaq</span></div></footer></article>
+      <article class="rc"><span class="st">★★★★★</span><p>«ТО за 2 часа, пока работал в зоне ожидания. Кофе вкусный 🙂»</p><footer><i style="background:#3BA7E5">Е</i><div><b>Евгений</b><br><span class="muted">Geely Monjaro</span></div></footer></article>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap two">
+    <div class="pop">
+      <span class="pill"><i>04</i>Вопросы</span>
+      <h2 style="margin:14px 0 24px">Частые вопросы</h2>
+      <div class="acc open"><button type="button">Сколько стоит диагностика?<i>+</i></button><div class="a"><div><p>От 900 ₽. Если ремонтируете у нас — диагностика бесплатно.</p></div></div></div>
+      <div class="acc"><button type="button">Можно со своими запчастями?<i>+</i></button><div class="a"><div><p>Да, гарантия на работу сохраняется. Можем и подобрать запчасти со скидкой.</p></div></div></div>
+      <div class="acc"><button type="button">Как долго ждать?<i>+</i></button><div class="a"><div><p>ТО и мелкий ремонт — 1–3 часа. Сложные работы — от одного дня, срок называем заранее.</p></div></div></div>
+      <div class="acc"><button type="button">Есть гарантия?<i>+</i></button><div class="a"><div><p>Да, 1 год на работы и до 2 лет на запчасти.</p></div></div></div>
+    </div>
+    <div class="ct pop">
+      <h3 style="font-size:26px">Контакты</h3>
+      <div class="ct-row"><span>📍</span><div>ул. Механиков, 12<small>Бесплатная парковка у входа</small></div></div>
+      <div class="ct-row"><span>📞</span><div><a href="tel:+70000000000">+7 (000) 000-00-00</a><small>Ежедневно 9:00–21:00</small></div></div>
+      <div class="ct-row"><span>💬</span><div>WhatsApp · Telegram<small>Ответим за 5 минут</small></div></div>
+      <a href="#quiz" class="btn btn-v" style="margin-top:6px">Подобрать ремонт</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft"><div class="wrap"><span>© <span id="y"></span> МоторПро · демо-лендинг</span><span>ул. Механиков, 12 · +7 (000) 000-00-00</span></div></footer>
+
+<div class="fab" id="fab"><a href="tel:+70000000000" class="btn btn-w">Позвонить</a><a href="#quiz" class="btn btn-v">Записаться</a></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+  // pop-in reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  $$('.pop').forEach(el => {
+    const sib = [...el.parentElement.children].filter(c => c.classList.contains('pop'));
+    el.style.transitionDelay = Math.min(sib.indexOf(el), 6) * 60 + 'ms';
+    io.observe(el);
+  });
+
+  // reviews marquee: duplicate cards for a seamless loop
+  const tr = $('#revs'); tr.innerHTML += tr.innerHTML;
+
+  // accordion
+  $$('.acc button').forEach(b => b.addEventListener('click', () => b.parentElement.classList.toggle('open')));
+
+  // mobile bar
+  const fab = $('#fab');
+  addEventListener('scroll', () => fab.classList.toggle('on', scrollY > 500), {passive:true});
+
+  // quiz
+  let step = 1; const answers = {};
+  const steps = $$('.q-step'), bars = $$('#steps i'), next = $('#next'), back = $('#back');
+  $$('.opts').forEach(g => g.addEventListener('click', e => {
+    const b = e.target.closest('.opt'); if (!b) return;
+    g.querySelectorAll('.opt').forEach(o => o.classList.toggle('sel', o === b));
+    answers[g.dataset.name] = b.textContent.trim();
+    setTimeout(() => go(step + 1), 250);
+  }));
+  function go(n){
+    if (n > 3) return;
+    step = n;
+    steps.forEach(s => s.classList.toggle('on', +s.dataset.step === n));
+    bars.forEach((b, i) => b.classList.toggle('on', i < n));
+    back.style.visibility = n > 1 ? 'visible' : 'hidden';
+    next.textContent = n === 3 ? 'Получить цену' : 'Далее';
+  }
+  back.addEventListener('click', () => go(step - 1));
+  next.addEventListener('click', () => {
+    if (step < 3) {
+      const g = steps[step - 1].querySelector('.opts');
+      if (!answers[g.dataset.name]) { g.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}], {duration:300}); return; }
+      return go(step + 1);
+    }
+    const n = $('#qn'), p = $('#qp'); let ok = true;
+    [n, p].forEach(f => f.style.borderColor = '');
+    if (!n.value.trim()) { n.style.borderColor = '#FF6B6B'; ok = false; }
+    if (p.value.replace(/\D/g,'').length !== 11) { p.style.borderColor = '#FF6B6B'; ok = false; }
+    if (!ok) return;
+    steps.forEach(s => s.classList.remove('on')); $('#qnav').hidden = true; $('#qdone').hidden = false;
+    $('#qtxt').textContent = `${n.value.trim()}, перезвоним на ${p.value} с ценой. Запрос: ${answers.problem || ''}, ${answers.car || ''}.`;
+  });
+
+  // phone mask
+  const ph = $('#qp');
+  ph.addEventListener('input', () => {
+    let d = ph.value.replace(/\D/g,''); if (d[0] === '8') d = '7' + d.slice(1); if (d[0] !== '7') d = '7' + d; d = d.slice(0,11);
+    let o = '+7'; if (d.length > 1) o += ' (' + d.slice(1,4); if (d.length >= 4) o += ')'; if (d.length > 4) o += ' ' + d.slice(4,7); if (d.length > 7) o += '-' + d.slice(7,9); if (d.length > 9) o += '-' + d.slice(9,11);
+    ph.value = o;
+  });
+
+  $('#y').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

@@ -16,9 +16,10 @@
   h1{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
   p.lead{color:var(--muted);margin-top:14px;max-width:52ch;font-size:17px}
   .grid{display:grid;gap:16px;margin-top:40px}
-  @media (min-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
+  @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
   a.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease;opacity:0;transform:translateY(16px);animation:in .6s ease forwards}
-  a.card:nth-child(2){animation-delay:.1s}a.card:nth-child(3){animation-delay:.2s}
+  a.card:nth-child(2){animation-delay:.08s}a.card:nth-child(3){animation-delay:.16s}a.card:nth-child(4){animation-delay:.24s}a.card:nth-child(5){animation-delay:.32s}
   @keyframes in{to{opacity:1;transform:none}}
   @media (hover:hover){a.card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(0,0,0,.3)}}
   .prev{height:170px;position:relative;display:flex;align-items:flex-end;padding:18px}
@@ -34,7 +35,7 @@
 <body>
 <div class="wrap">
   <h1>Лендинги для автосервисов</h1>
-  <p class="lead">Три варианта оформления: разные палитры, шрифты и анимации. Сайты работают на телефонах и компьютерах.</p>
+  <p class="lead">Пять вариантов оформления: разные палитры, шрифты и анимации. Сайты работают на телефонах и компьютерах.</p>
   <div class="grid">
     <a class="card" href="sto-landing/">
       <div class="prev" style="background:#121418;color:#fff"><div class="sw"><i style="background:#FF5B1F"></i><i style="background:#D4FF3A"></i><i style="background:#F3F2EC"></i></div><b>ТОРК</b></div>
@@ -47,6 +48,14 @@
     <a class="card" href="sto-landing-3/">
       <div class="prev" style="background:#1F4D3A;color:#FBF7F0"><div class="sw"><i style="background:#E8B23A"></i><i style="background:#D2693C"></i><i style="background:#FBF7F0"></i></div><b style="font-family:Georgia,serif">Колесо</b></div>
       <div class="body"><strong>Светлый «семейный»</strong><small>Кремовый, зелёный и горчичный. Заголовок по словам, прайс во вкладках, карточки-стопка, слайдер отзывов.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-4/">
+      <div class="prev" style="background:#6D4AFF;color:#fff"><div class="sw"><i style="background:#FFD23F"></i><i style="background:#BDE6FF"></i><i style="background:#0E1B3D"></i></div><b>МоторПро</b></div>
+      <div class="body"><strong>Яркий bento</strong><small>Фиолетовый, жёлтый и голубой. Меняющееся слово в заголовке, квиз «цена за 3 шага», бегущие отзывы.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-5/">
+      <div class="prev" style="background:linear-gradient(110deg,#0B0B0C 60%,#E5332A 60% 64%,#0B0B0C 64%);color:#fff"><div class="sw"><i style="background:#E5332A"></i><i style="background:#FFB020"></i><i style="background:#0B0B0C"></i></div><b style="text-transform:uppercase">Красная линия</b></div>
+      <div class="body"><strong>Тёмный «гоночный»</strong><small>Чёрный, красный и янтарный. Линии скорости, слайдер услуг, прайс с переключателем, сравнение «до/после».</small><span>Открыть →</span></div>
     </a>
   </div>
 </div>
