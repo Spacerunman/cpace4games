@@ -10,3 +10,9 @@
 закреплённая панель «Позвонить / Записаться» на мобильных.
 
 Название, телефон, адрес и цены — заглушки, замените на данные заказчика.
+
+### Публикация (GitHub Pages)
+
+Settings → Pages → Source: «Deploy from a branch» → Branch: `main`, папка `/ (root)` → Save.
+Через 1–2 минуты сайт будет доступен по адресу https://spacerunman.github.io/cpace4games/
+(корневой `index.html` перенаправляет на `sto-landing/`).
