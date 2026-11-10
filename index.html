@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Портфолио — лендинги автосервисов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4F3EF;--ink:#14161A;--muted:#5D636C;--card:#fff;--line:#E3E1DA}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Manrope",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1100px;margin:0 auto;padding:56px 16px}
+  @media (min-width:768px){.wrap{padding:88px 32px}}
+  h1{font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  p.lead{color:var(--muted);margin-top:14px;max-width:52ch;font-size:17px}
+  .grid{display:grid;gap:16px;margin-top:40px}
+  @media (min-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
+  a.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;color:inherit;text-decoration:none;transition:transform .25s ease, box-shadow .25s ease;opacity:0;transform:translateY(16px);animation:in .6s ease forwards}
+  a.card:nth-child(2){animation-delay:.1s}a.card:nth-child(3){animation-delay:.2s}
+  @keyframes in{to{opacity:1;transform:none}}
+  @media (hover:hover){a.card:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(0,0,0,.3)}}
+  .prev{height:170px;position:relative;display:flex;align-items:flex-end;padding:18px}
+  .prev b{font-size:24px;font-weight:800;letter-spacing:-.01em}
+  .sw{position:absolute;top:18px;right:18px;display:flex;gap:6px}
+  .sw i{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.6)}
+  .body{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .body small{color:var(--muted);font-size:14px}
+  .body span{margin-top:auto;padding-top:10px;font-weight:700}
+  @media (prefers-reduced-motion:reduce){a.card{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Лендинги для автосервисов</h1>
+  <p class="lead">Три варианта оформления: разные палитры, шрифты и анимации. Сайты работают на телефонах и компьютерах.</p>
+  <div class="grid">
+    <a class="card" href="sto-landing/">
+      <div class="prev" style="background:#121418;color:#fff"><div class="sw"><i style="background:#FF5B1F"></i><i style="background:#D4FF3A"></i><i style="background:#F3F2EC"></i></div><b>ТОРК</b></div>
+      <div class="body"><strong>Современный bento</strong><small>Светлый фон, оранжевый и лайм. Калькулятор стоимости, онлайн-статус ремонта, запись со слотами.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-2/">
+      <div class="prev" style="background:linear-gradient(135deg,#0A0D13,#13213A);color:#fff"><div class="sw"><i style="background:#22D3EE"></i><i style="background:#3B82F6"></i><i style="background:#0A0D13"></i></div><b>ГАРАЖ 21</b></div>
+      <div class="body"><strong>Тёмный «техно»</strong><small>Графит и неоновый голубой. Анимированный тахометр, счётчики, пакеты ТО, таймлайн.</small><span>Открыть →</span></div>
+    </a>
+    <a class="card" href="sto-landing-3/">
+      <div class="prev" style="background:#1F4D3A;color:#FBF7F0"><div class="sw"><i style="background:#E8B23A"></i><i style="background:#D2693C"></i><i style="background:#FBF7F0"></i></div><b style="font-family:Georgia,serif">Колесо</b></div>
+      <div class="body"><strong>Светлый «семейный»</strong><small>Кремовый, зелёный и горчичный. Заголовок по словам, прайс во вкладках, карточки-стопка, слайдер отзывов.</small><span>Открыть →</span></div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
